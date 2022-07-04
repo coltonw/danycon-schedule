@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import ScheduleTab from './ScheduleTab';
 import ScheduleItem from './ScheduleItem';
+import ChooseGame from './ChooseGame';
 import {
   GiCardJoker,
   GiCakeSlice,
@@ -20,8 +21,15 @@ import {
   GiClover,
   GiCommercialAirplane,
 } from 'react-icons/gi';
+import { Participants } from '../lib/types';
 
-const Schedule = () => {
+interface ScheduleProps {
+  gamesChosen: string[];
+  participants: Participants;
+}
+
+const Schedule = ({ gamesChosen, participants }: ScheduleProps) => {
+  console.log(gamesChosen);
   const { query } = useRouter();
   const selectedTab =
     query.tab !== 'saturday' && query.tab !== 'sunday'
@@ -93,7 +101,7 @@ const Schedule = () => {
               >
                 <p>Possible games:</p>
                 <div className="is-flex">
-                  <div className="mr-4">
+                  <div className="mx-4">
                     <Image
                       src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324669399.png"
                       width="128"
@@ -107,7 +115,7 @@ const Schedule = () => {
                       height="128"
                     />
                   </div>
-                  <div className="ml-4">
+                  <div className="mx-4">
                     <Image
                       src="https://d1lu8vbgap5ai0.cloudfront.net/602c0e01a64cb1003ce4d82e.jpg"
                       width="128"
@@ -116,51 +124,65 @@ const Schedule = () => {
                   </div>
                 </div>
               </ScheduleItem>
-              <ScheduleItem
+              <ChooseGame
                 time="Thursday, July 7 evening"
                 title="Ark Nova or Forgotten Waters"
                 icon={<GiElephant size="2em" />}
-              >
-                <div className="is-flex">
-                  <div className="mr-4">
-                    <Image
-                      src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1635175402844"
-                      width="128"
-                      height="128"
-                    />
-                  </div>
-                  <div className="ml-4">
-                    <Image
-                      src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1579714457850"
-                      width="112"
-                      height="128"
-                    />
-                  </div>
-                </div>
-              </ScheduleItem>
-              <ScheduleItem
+                games={[
+                  {
+                    id: 'arknova',
+                    image: {
+                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1635175402844',
+                      width: '128',
+                      height: '128',
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/342942/ark-nova',
+                  },
+                  {
+                    id: 'forgottenwaters',
+                    image: {
+                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1579714457850',
+                      width: '112',
+                      height: '128',
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/302723/forgotten-waters',
+                  },
+                ]}
+                gamesChosen={gamesChosen}
+                participants={participants}
+              />
+              <ChooseGame
                 time="Friday, July 8 evening"
                 title="Meadow or Merchant's Cove"
                 icon={<GiClover size="2em" />}
                 iconColor="has-text-success"
-              >
-                <div className="is-flex">
-                  <div className="mr-4">
-                    <Image
-                      src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629322579564.jpg"
-                      width="128"
-                      height="128"
-                    />
-                  </div>
-                  <div className="ml-4">
-                    <Image
-                      src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1622651478720"
-                      width="128"
-                      height="128"
-                    />
-                  </div>
-                </div>
-              </ScheduleItem>
+                games={[
+                  {
+                    id: 'meadow',
+                    image: {
+                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629322579564.jpg',
+                      width: '128',
+                      height: '128',
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/314491/meadow',
+                  },
+                  {
+                    id: 'merchantscove',
+                    image: {
+                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1622651478720',
+                      width: '128',
+                      height: '128',
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/277700/merchants-cove',
+                  },
+                ]}
+                gamesChosen={gamesChosen}
+                participants={participants}
+              />
             </>
           )}
           {selectedTab === 'saturday' && (
