@@ -18,6 +18,7 @@ const Hunt: NextPage = () => {
             width="426"
             height="428"
             layout="responsive"
+            alt="sherlock gif"
           />
         </div>
       </section>

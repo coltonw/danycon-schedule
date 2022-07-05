@@ -29,31 +29,37 @@ const participantsToGamesChosen = (
   );
 };
 
+const participants = {
+  arknova: ['Erin', 'Mark'],
+  forgottenwaters: [],
+  meadow: ['Will'],
+  merchantscove: [],
+  pictureperfect: [],
+  awkwardguests: [],
+  cubitos: [],
+  calico: [],
+};
+
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const participants = {
-    arknova: ['Erin', 'Mark'],
-    forgottenwaters: [],
-    meadow: ['Will'],
-    merchantscove: [],
-    pictureperfect: [],
-    awkwardguests: [],
-    cubitos: [],
-    calico: [],
-  };
-  console.log(req.query);
-  const username: string = Array.isArray(req.query.username)
-    ? req.query.username[0]
-    : req.query.username || '';
-  console.log(`query: ${username}, valid? ${isValidUsername(username)}`);
-  const gamesChosen =
-    req.query.username && isValidUsername(username)
-      ? participantsToGamesChosen(participants, username)
-      : [];
-  res.status(200).json({
-    participants,
-    gamesChosen: gamesChosen,
-  });
+  if (req.method === 'POST') {
+    try {
+      const postJson = JSON.parse(req.body);
+      console.log(postJson);
+    } catch (e) {}
+  } else {
+    const username: string = Array.isArray(req.query.username)
+      ? req.query.username[0]
+      : req.query.username || '';
+    const gamesChosen =
+      req.query.username && isValidUsername(username)
+        ? participantsToGamesChosen(participants, username)
+        : [];
+    res.status(200).json({
+      participants,
+      gamesChosen: gamesChosen,
+    });
+  }
 }

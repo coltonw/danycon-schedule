@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { GiCardJoker, GiSherlockHolmes } from 'react-icons/gi';
+import { FiUser } from 'react-icons/fi';
 import styles from '../styles/Nav.module.scss';
 
 const Nav = () => {
+  const { pathname } = useRouter();
   const [isActive, setIsActive] = useState(false);
   return (
     <nav className={`navbar ${styles['nav-container']}`}>
@@ -30,16 +33,27 @@ const Nav = () => {
         </div>
         <div className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
           <div className="navbar-end">
-            <Link href="/">
-              <a className="navbar-item">Schedule</a>
-            </Link>
-            <Link href="/hunt">
-              <a className="navbar-item">
-                <span className="icon">
-                  <GiSherlockHolmes size="1.5em" />
-                </span>
-              </a>
-            </Link>
+            {pathname !== '/login' && (
+              <>
+                <Link href="/">
+                  <a className="navbar-item">Schedule</a>
+                </Link>
+                <Link href="/hunt">
+                  <a className="navbar-item">
+                    <span className="icon">
+                      <GiSherlockHolmes size="1.5em" />
+                    </span>
+                  </a>
+                </Link>
+                <Link href="/login">
+                  <a className="navbar-item">
+                    <span className="icon">
+                      <FiUser size="1.5em" />
+                    </span>
+                  </a>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

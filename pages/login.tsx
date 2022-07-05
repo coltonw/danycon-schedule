@@ -49,7 +49,7 @@ const Login: NextPage = () => {
                   <FiUser />
                 </span>
               </p>
-              {invalid && <p className="help is-danger">I don't know you</p>}
+              {invalid && <p className="help is-danger">I don&apos;t know you</p>}
             </div>
             <div className="panel-block">
               <button
