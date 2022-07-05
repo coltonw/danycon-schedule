@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { FiChevronDown, FiChevronUp, FiUser } from 'react-icons/fi';
 import { Participants } from '../lib/types';
 
 interface ImageProps {
@@ -44,10 +44,13 @@ const ChooseGame = ({
   );
   const [open, setOpen] = useState(false);
   return (
-    <div className={`card mb-2 is-clickable`} onClick={() => setOpen(!open)}>
+    <div className={`card mb-2`}>
       <div className="card-content">
         <div className="content">
-          <div className="is-flex is-align-items-center">
+          <div
+            className="is-flex is-align-items-center is-clickable"
+            onClick={() => setOpen(!open)}
+          >
             <div className={`icon is-large ${iconColor || ''}`}>{icon}</div>
             <div>
               <div className="is-size-7">{time}</div>
@@ -67,27 +70,44 @@ const ChooseGame = ({
             </div>
           </div>
           {open && (
-            <div className="mt-2 is-flex is-justify-content-center is-align-items-center">
+            <div className="mt-2 columns">
               {games.map(({ id, image: { src, width, height }, bggLink }) => (
-                <div key={id} className="mx-4 is-flex is-flex-direction-column">
-                  <Link href={bggLink}>
-                    <a
-                      onClick={(event) => {
-                        event.stopPropagation();
-                      }}
-                    >
-                      <Image src={src} width={width} height={height} />
-                    </a>
-                  </Link>
-                  <div className="is-flex is-justify-content-center">
-                    <button
-                      className="button is-primary is-outlined"
-                      onClick={(event) => {
-                        event.stopPropagation();
-                      }}
-                    >
-                      Choose
-                    </button>
+                <div key={id} className="column">
+                  <div className="media">
+                    <div className="media-left">
+                      <Link href={bggLink}>
+                        <a>
+                          <Image
+                            src={src}
+                            width={width}
+                            height={height}
+                            alt={id}
+                          />
+                        </a>
+                      </Link>
+                    </div>
+                    <div className="media-content">
+                      <article className="panel">
+                        {participants[id].map((username) => (
+                          <span key={username} className="panel-block">
+                            <span className="panel-icon">
+                              <FiUser />
+                            </span>
+                            {username}
+                          </span>
+                        ))}
+                        <div className="panel-block">
+                          <button
+                            className="button is-link is-outlined is-fullwidth"
+                            onClick={(event) => {
+                              event.stopPropagation();
+                            }}
+                          >
+                            Choose
+                          </button>
+                        </div>
+                      </article>
+                    </div>
                   </div>
                 </div>
               ))}
