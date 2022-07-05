@@ -24,12 +24,11 @@ import {
 import { Participants } from '../lib/types';
 
 interface ScheduleProps {
-  gamesChosen: string[];
+  gamesJoined: string[];
   participants: Participants;
 }
 
-const Schedule = ({ gamesChosen, participants }: ScheduleProps) => {
-  console.log(gamesChosen);
+const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
   const { query } = useRouter();
   const selectedTab =
     query.tab !== 'saturday' && query.tab !== 'sunday'
@@ -150,7 +149,7 @@ const Schedule = ({ gamesChosen, participants }: ScheduleProps) => {
                       'https://boardgamegeek.com/boardgame/302723/forgotten-waters',
                   },
                 ]}
-                gamesChosen={gamesChosen}
+                gamesJoined={gamesJoined}
                 participants={participants}
               />
               <ChooseGame
@@ -180,7 +179,7 @@ const Schedule = ({ gamesChosen, participants }: ScheduleProps) => {
                       'https://boardgamegeek.com/boardgame/277700/merchants-cove',
                   },
                 ]}
-                gamesChosen={gamesChosen}
+                gamesJoined={gamesJoined}
                 participants={participants}
               />
             </>

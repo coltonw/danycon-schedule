@@ -1,20 +1,10 @@
 import { ReactNode, useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { FiChevronDown, FiChevronUp, FiUser } from 'react-icons/fi';
-import { Participants } from '../lib/types';
-
-interface ImageProps {
-  src: string;
-  width: string;
-  height: string;
-}
-
-interface GameProps {
-  id: string;
-  image: ImageProps;
-  bggLink: string;
-}
+import { useCookies } from 'react-cookie';
+import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { GameProps, Participants } from '../lib/types';
+import { isValidUsername } from '../lib/usernames';
+import { isGameJoined } from '../lib/utils';
+import ChooseGameOption from './ChooseGameOption';
 
 interface ChooseGameProps {
   time: string;
@@ -22,13 +12,9 @@ interface ChooseGameProps {
   icon: ReactNode;
   iconColor?: string;
   games: GameProps[];
-  gamesChosen: string[];
+  gamesJoined: string[];
   participants: Participants;
 }
-
-const isGameChosen = (game: GameProps, gamesChosen: string[]): boolean => {
-  return !!gamesChosen.find((id) => id === game.id);
-};
 
 const ChooseGame = ({
   time,
@@ -36,13 +22,37 @@ const ChooseGame = ({
   icon,
   iconColor,
   games,
-  gamesChosen,
-  participants,
+  gamesJoined: initialGamesJoined,
+  participants: initialParticipants,
 }: ChooseGameProps) => {
-  const chosenGamesExist = games.find((game) =>
-    isGameChosen(game, gamesChosen)
-  );
+  const [cookies] = useCookies(['username']);
   const [open, setOpen] = useState(false);
+  const [participants, setParticipants] = useState(initialParticipants);
+  const [gamesJoined, setGamesJoined] = useState(initialGamesJoined);
+
+  const joinedGamesExist = !!games.find((game) =>
+    isGameJoined(game, gamesJoined)
+  );
+
+  const joinGame = (id: string) => {
+    if (isValidUsername(cookies.username)) {
+      setGamesJoined([...gamesJoined, id]);
+      setParticipants({
+        ...participants,
+        [id]: [...participants[id], cookies.username],
+      });
+    }
+  };
+  const leaveGame = (id: string) => {
+    if (isValidUsername(cookies.username)) {
+      setGamesJoined(gamesJoined.filter((g) => g !== id));
+      setParticipants({
+        ...participants,
+        [id]: participants[id].filter((u) => u !== cookies.username),
+      });
+    }
+  };
+
   return (
     <div className={`card mb-2`}>
       <div className="card-content">
@@ -60,7 +70,7 @@ const ChooseGame = ({
             <div>
               {open ? (
                 <FiChevronUp />
-              ) : chosenGamesExist ? (
+              ) : joinedGamesExist ? (
                 <FiChevronDown />
               ) : (
                 <div className={`tag is-dark ${iconColor || ''}`}>
@@ -71,45 +81,16 @@ const ChooseGame = ({
           </div>
           {open && (
             <div className="mt-2 columns">
-              {games.map(({ id, image: { src, width, height }, bggLink }) => (
-                <div key={id} className="column">
-                  <div className="media">
-                    <div className="media-left">
-                      <Link href={bggLink}>
-                        <a>
-                          <Image
-                            src={src}
-                            width={width}
-                            height={height}
-                            alt={id}
-                          />
-                        </a>
-                      </Link>
-                    </div>
-                    <div className="media-content">
-                      <article className="panel">
-                        {participants[id].map((username) => (
-                          <span key={username} className="panel-block">
-                            <span className="panel-icon">
-                              <FiUser />
-                            </span>
-                            {username}
-                          </span>
-                        ))}
-                        <div className="panel-block">
-                          <button
-                            className="button is-link is-outlined is-fullwidth"
-                            onClick={(event) => {
-                              event.stopPropagation();
-                            }}
-                          >
-                            Choose
-                          </button>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-                </div>
+              {games.map((game) => (
+                <ChooseGameOption
+                  key={game.id}
+                  game={game}
+                  gamesJoined={gamesJoined}
+                  participants={participants}
+                  joinedGamesExist={joinedGamesExist}
+                  joinGame={joinGame}
+                  leaveGame={leaveGame}
+                />
               ))}
             </div>
           )}

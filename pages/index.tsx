@@ -5,18 +5,18 @@ import Schedule from '../components/Schedule';
 import { Participants } from '../lib/types';
 
 interface HomeProps {
-  gamesChosen: string[];
+  gamesJoined: string[];
   participants: Participants;
 }
 
-const Home: NextPage<HomeProps> = ({ gamesChosen, participants }) => {
+const Home: NextPage<HomeProps> = ({ gamesJoined, participants }) => {
   return (
     <>
       <Hero
         title="Schedule"
         subtitle="Board gaming will commence in 3 2 1 ... Lift Off"
       />
-      <Schedule gamesChosen={gamesChosen} participants={participants} />
+      <Schedule gamesJoined={gamesJoined} participants={participants} />
     </>
   );
 };
@@ -35,16 +35,16 @@ export async function getServerSideProps({ req }: { req: IncomingMessage }) {
       `http://${req.headers.host}/api/games?username=${username}`
     );
     if (apiResponse.status === 200) {
-      const { gamesChosen, participants } = await apiResponse.json();
+      const { gamesJoined, participants } = await apiResponse.json();
       return {
         props: {
-          gamesChosen: gamesChosen || [],
+          gamesJoined: gamesJoined || [],
           participants: participants || {},
         },
       };
     }
   } catch (e) {}
   return {
-    props: { gamesChosen: [], participants: {} },
+    props: { gamesJoined: [], participants: {} },
   };
 }
