@@ -21,6 +21,7 @@ import {
   GiElephant,
   GiClover,
   GiCommercialAirplane,
+  GiSherlockHolmes,
 } from 'react-icons/gi';
 import { Participants } from '../lib/types';
 
@@ -103,32 +104,7 @@ const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
                 title="Will's birthday!"
                 icon={<GiCookie size="2em" />}
                 iconColor="has-text-warning"
-              >
-                <p>Possible games:</p>
-                <div className="is-flex">
-                  <div className="mx-4">
-                    <Image
-                      src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324669399.png"
-                      width="128"
-                      height="128"
-                    />
-                  </div>
-                  <div className="mx-4">
-                    <Image
-                      src="https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1580834227259"
-                      width="93"
-                      height="128"
-                    />
-                  </div>
-                  <div className="mx-4">
-                    <Image
-                      src="https://d1lu8vbgap5ai0.cloudfront.net/602c0e01a64cb1003ce4d82e.jpg"
-                      width="128"
-                      height="128"
-                    />
-                  </div>
-                </div>
-              </ScheduleItem>
+              />
               <ChooseGame
                 time="Thursday, July 7 evening"
                 title="Ark Nova or Forgotten Waters"
@@ -157,6 +133,12 @@ const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
                 ]}
                 gamesJoined={gamesJoined}
                 participants={participants}
+              />
+              <ScheduleItem
+                time="Friday, July 8 Afternoon"
+                title="Scavenger Hunt"
+                icon={<GiSherlockHolmes size="2em" />}
+                iconColor="has-text-warning"
               />
               <ChooseGame
                 time="Friday, July 8 evening"
@@ -208,10 +190,34 @@ const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
                 title="Lunch"
                 icon={<GiMeal size="2em" />}
               />
-              <ScheduleItem
+              <ChooseGame
                 time="1:30pm"
                 title="Picture Perfect or Awkward Guests"
                 icon={<GiPhotoCamera size="2em" />}
+                games={[
+                  {
+                    id: 'pictureperfect',
+                    image: {
+                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1633968068549',
+                      width: '128',
+                      height: '128',
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/299963/picture-perfect',
+                  },
+                  {
+                    id: 'awkwardguests',
+                    image: {
+                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1541660464696',
+                      width: '128',
+                      height: '98',
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/188866/awkward-guests',
+                  },
+                ]}
+                gamesJoined={gamesJoined}
+                participants={participants}
               />
               <ScheduleItem
                 time="4:00pm"
@@ -242,14 +248,38 @@ const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
             <>
               <ScheduleItem
                 time="9:30am"
-                title="Take Jesse and Mezbeth to the airport"
+                title="Take Jesse to the airport"
                 icon={<GiCommercialAirplane size="2em" />}
               />
-              <ScheduleItem
-                time="10am"
+              <ChooseGame
+                time="10:00am"
                 title="Cubitos or Calico"
                 icon={<GiCardJoker size="2em" />}
                 iconColor="has-text-primary"
+                games={[
+                  {
+                    id: 'cubitos',
+                    image: {
+                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324801304.jpg',
+                      width: '128',
+                      height: '128',
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/298069/cubitos',
+                  },
+                  {
+                    id: 'calico',
+                    image: {
+                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1592695551678',
+                      width: '128',
+                      height: '128',
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/283155/calico',
+                  },
+                ]}
+                gamesJoined={gamesJoined}
+                participants={participants}
               />
               <ScheduleItem
                 time="12:00pm"
