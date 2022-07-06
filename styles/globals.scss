@@ -4,3 +4,7 @@ $card-header-shadow: none;
 $warning: $brown;
 
 @import '~bulma/bulma';
+
+.is-not-clickable-text {
+  cursor: text;
+}

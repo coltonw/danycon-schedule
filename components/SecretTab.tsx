@@ -1,22 +1,13 @@
-import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
-import Link from 'next/link';
-import Hero from '../components/Hero';
+import Hero from './Hero';
 
-const Hunt: NextPage = () => {
+const SecretTab = () => {
   return (
     <>
       <Hero
         title="Scavenger Hunt"
-        subtitle={
-          <>
-            The game is{' '}
-            <Link href="/afoot">
-              <a className="is-not-clickable-text has-text-dark">afoot</a>
-            </Link>
-            !
-          </>
-        }
+        subtitle="The game is afoot!"
         color="has-background-grey-lighter"
       />
       <section className="section">
@@ -35,4 +26,4 @@ const Hunt: NextPage = () => {
   );
 };
 
-export default Hunt;
+export default SecretTab;

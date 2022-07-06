@@ -1,6 +1,8 @@
+import { ReactNode } from 'react';
+
 interface HeroProps {
   title: string;
-  subtitle?: string;
+  subtitle?: ReactNode;
   color?: string;
   children?: React.ReactElement;
 }

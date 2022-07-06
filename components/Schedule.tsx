@@ -3,6 +3,7 @@ import Image from 'next/image';
 import ScheduleTab from './ScheduleTab';
 import ScheduleItem from './ScheduleItem';
 import ChooseGame from './ChooseGame';
+import SecretTab from './SecretTab';
 import {
   GiCardJoker,
   GiCakeSlice,
@@ -31,7 +32,7 @@ interface ScheduleProps {
 const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
   const { query } = useRouter();
   const selectedTab =
-    query.tab !== 'saturday' && query.tab !== 'sunday'
+    query.tab !== 'saturday' && query.tab !== 'sunday' && query.tab !== 'secret'
       ? 'predanycon'
       : query.tab;
   return (
@@ -51,6 +52,11 @@ const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
           <li className={`${selectedTab === 'sunday' ? 'is-active' : ''}`}>
             <ScheduleTab id="sunday" title="Sunday" date="July 10" />
           </li>
+          {selectedTab === 'secret' && (
+            <li className={`${selectedTab === 'secret' ? 'is-active' : ''}`}>
+              <ScheduleTab id="secret" title="Secret" date="???" />
+            </li>
+          )}
         </ul>
       </div>
       <section className="section">
@@ -268,6 +274,7 @@ const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
               />
             </>
           )}
+          {selectedTab === 'secret' && <SecretTab />}
         </div>
       </section>
     </>
