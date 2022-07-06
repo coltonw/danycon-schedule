@@ -1,9 +1,7 @@
 import { ReactNode, useState } from 'react';
-import { useCookies } from 'react-cookie';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { GameProps, Participants } from '../lib/types';
-import { isValidUsername } from '../lib/usernames';
-import { isGameJoined } from '../lib/utils';
+import { isGameJoined, useUsername } from '../lib/utils';
 import ChooseGameOption from './ChooseGameOption';
 
 interface ChooseGameProps {
@@ -25,8 +23,8 @@ const ChooseGame = ({
   gamesJoined: initialGamesJoined,
   participants: initialParticipants,
 }: ChooseGameProps) => {
-  const [cookies] = useCookies(['username']);
   const [open, setOpen] = useState(false);
+  const username = useUsername();
   const [participants, setParticipants] = useState(initialParticipants);
   const [gamesJoined, setGamesJoined] = useState(initialGamesJoined);
 
@@ -35,22 +33,18 @@ const ChooseGame = ({
   );
 
   const joinGame = (id: string) => {
-    if (isValidUsername(cookies.username)) {
-      setGamesJoined([...gamesJoined, id]);
-      setParticipants({
-        ...participants,
-        [id]: [...participants[id], cookies.username],
-      });
-    }
+    setGamesJoined([...gamesJoined, id]);
+    setParticipants({
+      ...participants,
+      [id]: [...participants[id], username],
+    });
   };
   const leaveGame = (id: string) => {
-    if (isValidUsername(cookies.username)) {
-      setGamesJoined(gamesJoined.filter((g) => g !== id));
-      setParticipants({
-        ...participants,
-        [id]: participants[id].filter((u) => u !== cookies.username),
-      });
-    }
+    setGamesJoined(gamesJoined.filter((g) => g !== id));
+    setParticipants({
+      ...participants,
+      [id]: participants[id].filter((u) => u !== username),
+    });
   };
 
   return (

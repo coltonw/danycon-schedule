@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FiUser } from 'react-icons/fi';
 import { GameProps, Participants } from '../lib/types';
-import { isGameJoined } from '../lib/utils';
+import { isGameJoined, useUsername } from '../lib/utils';
 
 interface ChooseGameOptionProps {
   game: GameProps;
@@ -25,6 +25,7 @@ const ChooseGameOption = ({
   joinGame,
   leaveGame,
 }: ChooseGameOptionProps) => {
+  const username = useUsername();
   const joined = isGameJoined({ id }, gamesJoined);
   return (
     <div key={id} className="column">
@@ -38,12 +39,12 @@ const ChooseGameOption = ({
         </div>
         <div className="media-content">
           <article className="panel">
-            {participants[id].map((username) => (
-              <span key={username} className="panel-block">
+            {participants[id].map((u) => (
+              <span key={u} className="panel-block">
                 <span className="panel-icon">
                   <FiUser />
                 </span>
-                {username}
+                {u}
               </span>
             ))}
             <div className="panel-block">
@@ -51,7 +52,7 @@ const ChooseGameOption = ({
                 className="button is-link is-outlined is-fullwidth"
                 onClick={() => {
                   if (joined) {
-                    fetch('/api/games', {
+                    fetch(`/api/games?username=${username}`, {
                       method: 'POST',
                       body: JSON.stringify({
                         action: 'leave',
@@ -60,7 +61,7 @@ const ChooseGameOption = ({
                     });
                     leaveGame(id);
                   } else if (!joinedGamesExist) {
-                    fetch('/api/games', {
+                    fetch(`/api/games?username=${username}`, {
                       method: 'POST',
                       body: JSON.stringify({
                         action: 'join',

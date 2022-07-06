@@ -1,7 +1,14 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
+import {
+  AttributeValue,
+  DynamoDBClient,
+  GetItemCommand,
+  PutItemCommand,
+} from '@aws-sdk/client-dynamodb';
 import { isValidUsername } from '../../lib/usernames';
 import { Participants } from '../../lib/types';
+import { env } from 'process';
 
 type Data = {
   participants: Participants;
@@ -29,10 +36,10 @@ const participantsToGamesJoined = (
   );
 };
 
-const participants: Participants = {
-  arknova: ['Erin', 'Mark'],
+const initialParticipants: Participants = {
+  arknova: [],
   forgottenwaters: [],
-  meadow: ['Will'],
+  meadow: [],
   merchantscove: [],
   pictureperfect: [],
   awkwardguests: [],
@@ -40,7 +47,63 @@ const participants: Participants = {
   calico: [],
 };
 
-export default function handler(
+const getParticipantsItem = async (): Promise<
+  Record<string, AttributeValue> | undefined
+> => {
+  const client = new DynamoDBClient({ region: 'us-east-1' });
+  const command = new GetItemCommand({
+    TableName: 'danycon',
+    Key: {
+      id: { N: '0' },
+    },
+  });
+  try {
+    const data = await client.send(command);
+    return data.Item;
+  } catch (e) {}
+
+  return undefined;
+};
+
+const getParticipants = async (
+  itemParam?: Record<string, AttributeValue>
+): Promise<Participants> => {
+  if (env.NODE_ENV === 'production') {
+    const item = itemParam || (await getParticipantsItem());
+    if (item?.participants?.S) {
+      try {
+        return JSON.parse(item.participants.S);
+      } catch (e) {}
+    }
+  }
+  return initialParticipants;
+};
+
+const putParticipants = async (version: string, participants: Participants) => {
+  if (env.NODE_ENV === 'production') {
+    const client = new DynamoDBClient({ region: 'us-east-1' });
+    const command = new PutItemCommand({
+      TableName: 'danycon',
+      Item: {
+        id: { N: '0' },
+        version: { N: '' + (parseInt(version, 10) + 1) },
+        participants: { S: JSON.stringify(participants) },
+      },
+      ConditionExpression: `version = :v`,
+      ExpressionAttributeValues: {
+        ':v': { N: version },
+      },
+    });
+    try {
+      await client.send(command);
+      return true;
+    } catch (e) {}
+    return false;
+  }
+  return true;
+};
+
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
@@ -52,23 +115,35 @@ export default function handler(
     req.query.username &&
     isValidUsername(username)
   ) {
+    const participantsItem = await getParticipantsItem();
+    const participants = await getParticipants(participantsItem);
+    let succuss = false;
     try {
       const postJson: { action: string; game: string } = JSON.parse(req.body);
-      console.log(postJson);
       if (postJson.action === 'join') {
         participants[postJson.game].push(username);
+        succuss = await putParticipants(
+          participantsItem?.version?.N || '0',
+          participants
+        );
       } else if (postJson.action === 'leave') {
         participants[postJson.game] = participants[postJson.game].filter(
           (u) => u !== username
         );
+        succuss = await putParticipants(
+          participantsItem?.version?.N || '0',
+          participants
+        );
       }
-      const gamesJoined = participantsToGamesJoined(participants, username);
-      res.status(200).json({
-        participants,
-        gamesJoined: gamesJoined,
-      });
     } catch (e) {}
+
+    const gamesJoined = participantsToGamesJoined(participants, username);
+    res.status(succuss ? 200 : 500).json({
+      participants,
+      gamesJoined: gamesJoined,
+    });
   } else {
+    const participants = await getParticipants();
     const gamesJoined =
       req.query.username && isValidUsername(username)
         ? participantsToGamesJoined(participants, username)
