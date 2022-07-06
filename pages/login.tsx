@@ -12,13 +12,21 @@ const Login: NextPage = () => {
   const router = useRouter();
 
   const submit = () => {
-    const validated = validateUsername(username);
-    if (validated) {
-      setInvalid(false);
-      setCookie('username', validated, { maxAge: 30 * 24 * 60 * 60 });
-      router.push('/');
+    if (username.toLowerCase().trim() === 'dany') {
+      router.push('/danyuser');
+    } else if (username.toLowerCase().trim() === 'isaac') {
+      router.push('/isaacuser');
+    } else if (username.toLowerCase().trim() === 'friedemann') {
+      router.push('/friedemannuser');
     } else {
-      setInvalid(true);
+      const validated = validateUsername(username);
+      if (validated) {
+        setInvalid(false);
+        setCookie('username', validated, { maxAge: 30 * 24 * 60 * 60 });
+        router.push('/');
+      } else {
+        setInvalid(true);
+      }
     }
   };
 
@@ -49,7 +57,9 @@ const Login: NextPage = () => {
                   <FiUser />
                 </span>
               </p>
-              {invalid && <p className="help is-danger">I don&apos;t know you</p>}
+              {invalid && (
+                <p className="help is-danger">I don&apos;t know you</p>
+              )}
             </div>
             <div className="panel-block">
               <button
