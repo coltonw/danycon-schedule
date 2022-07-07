@@ -11,3 +11,8 @@ export interface GameProps {
   image: ImageProps;
   bggLink: string;
 }
+
+export interface ScheduleData {
+  gamesJoined: string[];
+  participants: Participants;
+}

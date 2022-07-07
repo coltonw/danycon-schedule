@@ -23,19 +23,25 @@ import {
   GiCommercialAirplane,
   GiSherlockHolmes,
 } from 'react-icons/gi';
-import { Participants } from '../lib/types';
+import { ScheduleData } from '../lib/types';
+import { useState } from 'react';
 
-interface ScheduleProps {
-  gamesJoined: string[];
-  participants: Participants;
-}
-
-const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
+const Schedule = ({
+  gamesJoined: initialGamesJoined,
+  participants: initialParticipants,
+}: ScheduleData) => {
   const { query } = useRouter();
+  const [participants, setParticipants] = useState(initialParticipants);
+  const [gamesJoined, setGamesJoined] = useState(initialGamesJoined);
   const selectedTab =
     query.tab !== 'saturday' && query.tab !== 'sunday' && query.tab !== 'secret'
       ? 'predanycon'
       : query.tab;
+
+  const updateData = ({ gamesJoined: gJ, participants: p }: ScheduleData) => {
+    setParticipants(p);
+    setGamesJoined(gJ);
+  };
   return (
     <>
       <div className="tabs is-centered mb-0">
@@ -133,6 +139,7 @@ const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
                 ]}
                 gamesJoined={gamesJoined}
                 participants={participants}
+                updateData={updateData}
               />
               <ScheduleItem
                 time="Friday, July 8 Afternoon"
@@ -169,6 +176,7 @@ const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
                 ]}
                 gamesJoined={gamesJoined}
                 participants={participants}
+                updateData={updateData}
               />
             </>
           )}
@@ -218,6 +226,7 @@ const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
                 ]}
                 gamesJoined={gamesJoined}
                 participants={participants}
+                updateData={updateData}
               />
               <ScheduleItem
                 time="4:00pm"
@@ -280,6 +289,7 @@ const Schedule = ({ gamesJoined, participants }: ScheduleProps) => {
                 ]}
                 gamesJoined={gamesJoined}
                 participants={participants}
+                updateData={updateData}
               />
               <ScheduleItem
                 time="12:00pm"

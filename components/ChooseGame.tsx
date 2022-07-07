@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { GameProps, Participants } from '../lib/types';
-import { isGameJoined, useUsername } from '../lib/utils';
+import { GameProps, Participants, ScheduleData } from '../lib/types';
+import { isGameJoined } from '../lib/utils';
 import ChooseGameOption from './ChooseGameOption';
 
 interface ChooseGameProps {
@@ -12,6 +12,7 @@ interface ChooseGameProps {
   games: GameProps[];
   gamesJoined: string[];
   participants: Participants;
+  updateData: (params: ScheduleData) => void;
 }
 
 const ChooseGame = ({
@@ -20,32 +21,15 @@ const ChooseGame = ({
   icon,
   iconColor,
   games,
-  gamesJoined: initialGamesJoined,
-  participants: initialParticipants,
+  gamesJoined,
+  participants,
+  updateData,
 }: ChooseGameProps) => {
   const [open, setOpen] = useState(false);
-  const username = useUsername();
-  const [participants, setParticipants] = useState(initialParticipants);
-  const [gamesJoined, setGamesJoined] = useState(initialGamesJoined);
 
   const joinedGamesExist = !!games.find((game) =>
     isGameJoined(game, gamesJoined)
   );
-
-  const joinGame = (id: string) => {
-    setGamesJoined([...gamesJoined, id]);
-    setParticipants({
-      ...participants,
-      [id]: [...participants[id], username],
-    });
-  };
-  const leaveGame = (id: string) => {
-    setGamesJoined(gamesJoined.filter((g) => g !== id));
-    setParticipants({
-      ...participants,
-      [id]: participants[id].filter((u) => u !== username),
-    });
-  };
 
   return (
     <div className={`card mb-2`}>
@@ -82,8 +66,7 @@ const ChooseGame = ({
                   gamesJoined={gamesJoined}
                   participants={participants}
                   joinedGamesExist={joinedGamesExist}
-                  joinGame={joinGame}
-                  leaveGame={leaveGame}
+                  updateData={updateData}
                 />
               ))}
             </div>

@@ -49,24 +49,26 @@ const initialParticipants: Participants = {
 const getParticipantsItem = async (): Promise<
   Record<string, AttributeValue> | undefined
 > => {
-  const client = new DynamoDBClient({
-    region: 'us-east-1',
-    credentials: {
-      accessKeyId: process.env.danycon_aws_access_key || '',
-      secretAccessKey: process.env.danycon_aws_secret_key || '',
-    },
-  });
-  const command = new GetItemCommand({
-    TableName: 'danycon',
-    Key: {
-      id: { S: '0' },
-    },
-  });
-  try {
-    const data = await client.send(command);
-    return data.Item;
-  } catch (e) {
-    console.log(e);
+  if (process.env.NODE_ENV === 'production') {
+    const client = new DynamoDBClient({
+      region: 'us-east-1',
+      credentials: {
+        accessKeyId: process.env.danycon_aws_access_key || '',
+        secretAccessKey: process.env.danycon_aws_secret_key || '',
+      },
+    });
+    const command = new GetItemCommand({
+      TableName: 'danycon',
+      Key: {
+        id: { S: '0' },
+      },
+    });
+    try {
+      const data = await client.send(command);
+      return data.Item;
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   return undefined;
