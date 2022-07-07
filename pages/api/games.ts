@@ -8,7 +8,6 @@ import {
 } from '@aws-sdk/client-dynamodb';
 import { isValidUsername } from '../../lib/usernames';
 import { Participants } from '../../lib/types';
-import { env } from 'process';
 
 type Data = {
   participants: Participants;
@@ -66,7 +65,9 @@ const getParticipantsItem = async (): Promise<
   try {
     const data = await client.send(command);
     return data.Item;
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+  }
 
   return undefined;
 };
@@ -74,7 +75,10 @@ const getParticipantsItem = async (): Promise<
 const getParticipants = async (
   itemParam?: Record<string, AttributeValue>
 ): Promise<Participants> => {
-  if (env.NODE_ENV === 'production') {
+  console.log(
+    `Node env: ${process.env.NODE_ENV}, AWS Code: ${process.env.danycon_aws_access_key}`
+  );
+  if (process.env.NODE_ENV === 'production') {
     const item = itemParam || (await getParticipantsItem());
     if (item?.participants?.S) {
       try {
@@ -86,7 +90,7 @@ const getParticipants = async (
 };
 
 const putParticipants = async (version: string, participants: Participants) => {
-  if (env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production') {
     const client = new DynamoDBClient({
       region: 'us-east-1',
       credentials: {
@@ -109,7 +113,9 @@ const putParticipants = async (version: string, participants: Participants) => {
     try {
       await client.send(command);
       return true;
-    } catch (e) {}
+    } catch (e) {
+      console.log(e);
+    }
     return false;
   }
   return true;
