@@ -59,7 +59,7 @@ const getParticipantsItem = async (): Promise<
   const command = new GetItemCommand({
     TableName: 'danycon',
     Key: {
-      id: { N: '0' },
+      id: { S: '0' },
     },
   });
   try {
@@ -75,9 +75,6 @@ const getParticipantsItem = async (): Promise<
 const getParticipants = async (
   itemParam?: Record<string, AttributeValue>
 ): Promise<Participants> => {
-  console.log(
-    `Node env: ${process.env.NODE_ENV}, AWS Code: ${process.env.danycon_aws_access_key}`
-  );
   if (process.env.NODE_ENV === 'production') {
     const item = itemParam || (await getParticipantsItem());
     if (item?.participants?.S) {
@@ -101,7 +98,7 @@ const putParticipants = async (version: string, participants: Participants) => {
     const command = new PutItemCommand({
       TableName: 'danycon',
       Item: {
-        id: { N: '0' },
+        id: { S: '0' },
         version: { N: '' + (parseInt(version, 10) + 1) },
         participants: { S: JSON.stringify(participants) },
       },
