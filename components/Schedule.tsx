@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import ScheduleTab from './ScheduleTab';
 import ScheduleItem from './ScheduleItem';
 import ChooseGame from './ChooseGame';
@@ -22,6 +21,8 @@ import {
   GiClover,
   GiCommercialAirplane,
   GiSherlockHolmes,
+  GiPartyFlags,
+  GiSunglasses,
 } from 'react-icons/gi';
 import { ScheduleData } from '../lib/types';
 import { useState } from 'react';
@@ -142,13 +143,29 @@ const Schedule = ({
                 updateData={updateData}
               />
               <ScheduleItem
-                time="Friday, July 8 Afternoon"
+                time="Friday, July 8 evening"
+                title="Dinner at the summer house"
+                icon={<GiSunglasses size="2em" />}
+                iconColor="has-text-link"
+              />
+              <ScheduleItem
+                time="Friday, July 8 night"
+                title="Party games!"
+                icon={<GiPartyFlags size="2em" />}
+                iconColor="has-text-danger"
+              />
+            </>
+          )}
+          {selectedTab === 'saturday' && (
+            <>
+              <ScheduleItem
+                time="Morning"
                 title="Scavenger Hunt"
                 icon={<GiSherlockHolmes size="2em" />}
                 iconColor="has-text-warning"
               />
               <ChooseGame
-                time="Friday, July 8 evening"
+                time="10:00am"
                 title="Meadow or Merchant's Cove"
                 icon={<GiClover size="2em" />}
                 iconColor="has-text-success"
@@ -177,21 +194,6 @@ const Schedule = ({
                 gamesJoined={gamesJoined}
                 participants={participants}
                 updateData={updateData}
-              />
-            </>
-          )}
-          {selectedTab === 'saturday' && (
-            <>
-              <ScheduleItem
-                time="8:00am"
-                title="Take kids to Meemaw and Meepaw's house"
-                icon={<GiFamilyHouse size="2em" />}
-              />
-              <ScheduleItem
-                time="Morning"
-                title="Open gaming"
-                icon={<GiCardJoker size="2em" />}
-                iconColor="has-text-primary"
               />
               <ScheduleItem
                 time="12:00pm"
