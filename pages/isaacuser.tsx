@@ -16,10 +16,14 @@ const IsaacUser: NextPage = () => {
           <GiHouse size="2em" />
           <Image
             src="https://c.tenor.com/97woIIlSiGYAAAAC/merlot-sideways.gif"
-            width="476"
-            height="256"
-            layout="responsive"
+            width={476}
+            height={256}
             alt="sideways"
+            sizes="100vw"
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
           />
         </div>
       </section>

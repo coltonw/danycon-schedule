@@ -11,8 +11,8 @@ const Hunt: NextPage = () => {
         subtitle={
           <>
             The game is{' '}
-            <Link href="/afoot">
-              <a className="is-not-clickable-text has-text-dark">afoot</a>
+            <Link href="/afoot" className="is-not-clickable-text has-text-dark">
+              afoot
             </Link>
             !
           </>
@@ -24,10 +24,14 @@ const Hunt: NextPage = () => {
           <p className="is-size-5 has-text-centered mb-1">But which game?</p>
           <Image
             src="https://c.tenor.com/67EGa-wMf5MAAAAC/sherlock-benedict-cumberbatch.gif"
-            width="426"
-            height="428"
-            layout="responsive"
+            width={426}
+            height={428}
             alt="sherlock gif"
+            sizes="100vw"
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
           />
         </div>
       </section>

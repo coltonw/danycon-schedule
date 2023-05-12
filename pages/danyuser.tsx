@@ -16,17 +16,25 @@ const DanyUser: NextPage = () => {
           <GiHouse size="2em" />
           <Image
             src="https://c.tenor.com/yV-5c9MIhPAAAAAC/spiderman-climb.gif"
-            width="498"
-            height="249"
-            layout="responsive"
+            width={498}
+            height={249}
             alt="spiderman"
+            sizes="100vw"
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
           />
           <Image
             src="https://c.tenor.com/QRm7pJlKE3gAAAAC/sonar-campana-mortal-glitch.gif"
-            width="498"
-            height="280"
-            layout="responsive"
+            width={498}
+            height={280}
             alt="spiderman"
+            sizes="100vw"
+            style={{
+              width: '100%',
+              height: 'auto',
+            }}
           />
         </div>
       </section>

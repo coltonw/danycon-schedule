@@ -39,10 +39,14 @@ const Hunt: NextPage = () => {
             <GiHouse size="2em" />
             <Image
               src="https://c.tenor.com/Irq9bIGi_gsAAAAC/drunk-fantasia.gif"
-              width="332"
-              height="252"
-              layout="responsive"
+              width={332}
+              height={252}
               alt="drunk"
+              sizes="100vw"
+              style={{
+                width: '100%',
+                height: 'auto',
+              }}
             />
           </div>
         </div>

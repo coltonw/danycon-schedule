@@ -5,8 +5,8 @@ import { isValidUsername } from './lib/usernames';
 
 export function middleware(request: NextRequest) {
   // Getting cookies from the request
-  const username = request.cookies.get('username');
-  if (username && isValidUsername(username)) {
+  const cookie = request.cookies.get('username');
+  if (cookie && isValidUsername(cookie?.value)) {
     return NextResponse.next();
   }
 

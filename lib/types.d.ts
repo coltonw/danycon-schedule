@@ -2,8 +2,8 @@ export type Participants = { [id: string]: string[] };
 
 export interface ImageProps {
   src: string;
-  width: string;
-  height: string;
+  width: number;
+  height: number;
 }
 
 export interface GameProps {

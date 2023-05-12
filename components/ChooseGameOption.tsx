@@ -30,9 +30,16 @@ const ChooseGameOption = ({
       <div className="media">
         <div className="media-left">
           <Link href={bggLink}>
-            <a>
-              <Image src={src} width={width} height={height} alt={id} />
-            </a>
+            <Image
+              src={src}
+              width={width}
+              height={height}
+              alt={id}
+              style={{
+                maxWidth: '100%',
+                height: 'auto',
+              }}
+            />
           </Link>
         </div>
         <div className="media-content">

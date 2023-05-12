@@ -9,15 +9,17 @@ interface ScheduleTabProps {
 
 const ScheduleTab = ({ id, date, title }: ScheduleTabProps) => {
   return (
-    <Link href={{ pathname: '/', query: { tab: id } }}>
-      <a className="is-flex is-flex-direction-column">
-        <span className="icon is-medium mx-0">
-          <FiCalendar size="1.5em" />
-        </span>
-        <span className="is-size-7">{date}</span>
-        <span>{title}</span>
-      </a>
-    </Link>
+    (<Link
+      href={{ pathname: '/', query: { tab: id } }}
+      className="is-flex is-flex-direction-column">
+
+      <span className="icon is-medium mx-0">
+        <FiCalendar size="1.5em" />
+      </span>
+      <span className="is-size-7">{date}</span>
+      <span>{title}</span>
+
+    </Link>)
   );
 };
 
