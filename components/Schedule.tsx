@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import ScheduleTab from './ScheduleTab';
 import ScheduleItem from './ScheduleItem';
 import ChooseGame from './ChooseGame';
-import SecretTab from './SecretTab';
 import {
   GiCardJoker,
   GiCakeSlice,
@@ -121,8 +120,8 @@ const Schedule = ({
                     id: 'arknova',
                     image: {
                       src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1635175402844',
-                      width: '128',
-                      height: '128',
+                      width: 128,
+                      height: 128,
                     },
                     bggLink:
                       'https://boardgamegeek.com/boardgame/342942/ark-nova',
@@ -131,8 +130,8 @@ const Schedule = ({
                     id: 'forgottenwaters',
                     image: {
                       src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1579714457850',
-                      width: '112',
-                      height: '128',
+                      width: 112,
+                      height: 128,
                     },
                     bggLink:
                       'https://boardgamegeek.com/boardgame/302723/forgotten-waters',
@@ -174,8 +173,8 @@ const Schedule = ({
                     id: 'meadow',
                     image: {
                       src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629322579564.jpg',
-                      width: '128',
-                      height: '128',
+                      width: 128,
+                      height: 128,
                     },
                     bggLink:
                       'https://boardgamegeek.com/boardgame/314491/meadow',
@@ -184,8 +183,8 @@ const Schedule = ({
                     id: 'merchantscove',
                     image: {
                       src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1622651478720',
-                      width: '128',
-                      height: '128',
+                      width: 128,
+                      height: 128,
                     },
                     bggLink:
                       'https://boardgamegeek.com/boardgame/277700/merchants-cove',
@@ -209,8 +208,8 @@ const Schedule = ({
                     id: 'pictureperfect',
                     image: {
                       src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1633968068549',
-                      width: '128',
-                      height: '128',
+                      width: 128,
+                      height: 128,
                     },
                     bggLink:
                       'https://boardgamegeek.com/boardgame/299963/picture-perfect',
@@ -219,8 +218,8 @@ const Schedule = ({
                     id: 'awkwardguests',
                     image: {
                       src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1541660464696',
-                      width: '128',
-                      height: '98',
+                      width: 128,
+                      height: 98,
                     },
                     bggLink:
                       'https://boardgamegeek.com/boardgame/188866/awkward-guests',
@@ -272,8 +271,8 @@ const Schedule = ({
                     id: 'cubitos',
                     image: {
                       src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324801304.jpg',
-                      width: '128',
-                      height: '128',
+                      width: 128,
+                      height: 128,
                     },
                     bggLink:
                       'https://boardgamegeek.com/boardgame/298069/cubitos',
@@ -282,8 +281,8 @@ const Schedule = ({
                     id: 'calico',
                     image: {
                       src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1592695551678',
-                      width: '128',
-                      height: '128',
+                      width: 128,
+                      height: 128,
                     },
                     bggLink:
                       'https://boardgamegeek.com/boardgame/283155/calico',
@@ -316,7 +315,6 @@ const Schedule = ({
               />
             </>
           )}
-          {selectedTab === 'secret' && <SecretTab />}
         </div>
       </section>
     </>

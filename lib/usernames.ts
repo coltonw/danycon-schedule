@@ -8,6 +8,7 @@ const inputToUsername: { [key: string]: string } = {
   bailey: 'Bailey',
   amanda: 'Mandy',
   mandy: 'Mandy',
+  mandar: 'Mandy',
   will: 'Will',
   lexi: 'Lexi',
   alexis: 'Lexi',

@@ -1,32 +1,23 @@
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useCookies } from 'react-cookie';
 import { FiUser } from 'react-icons/fi';
 import { validateUsername } from '../lib/usernames';
 
 const Login: NextPage = () => {
-  const [cookies, setCookie] = useCookies(['username']);
-  const [username, setUsername] = useState(cookies.username || '');
+  const usernameLS = localStorage.getItem('username');
+  const [username, setUsername] = useState(usernameLS || '');
   const [invalid, setInvalid] = useState(false);
   const router = useRouter();
 
   const submit = () => {
-    if (username.toLowerCase().trim() === 'dany') {
-      router.push('/danyuser');
-    } else if (username.toLowerCase().trim() === 'isaac') {
-      router.push('/isaacuser');
-    } else if (username.toLowerCase().trim() === 'friedemann') {
-      router.push('/friedemannuser');
+    const validated = validateUsername(username);
+    if (validated) {
+      setInvalid(false);
+      localStorage.setItem('username', username);
+      router.push(`/schedule/${username}`);
     } else {
-      const validated = validateUsername(username);
-      if (validated) {
-        setInvalid(false);
-        setCookie('username', validated, { maxAge: 30 * 24 * 60 * 60 });
-        router.push('/');
-      } else {
-        setInvalid(true);
-      }
+      setInvalid(true);
     }
   };
 
