@@ -1,4 +1,7 @@
-import { useRouter } from 'next/router';
+'use client';
+
+import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import ScheduleTab from './ScheduleTab';
 import ScheduleItem from './ScheduleItem';
 import ChooseGame from './ChooseGame';
@@ -24,19 +27,19 @@ import {
   GiSunglasses,
 } from 'react-icons/gi';
 import { ScheduleData } from '../lib/types';
-import { useState } from 'react';
 
 const Schedule = ({
   gamesJoined: initialGamesJoined,
   participants: initialParticipants,
 }: ScheduleData) => {
-  const { query } = useRouter();
+  const searchParams = useSearchParams();
   const [participants, setParticipants] = useState(initialParticipants);
   const [gamesJoined, setGamesJoined] = useState(initialGamesJoined);
   const selectedTab =
-    query.tab !== 'saturday' && query.tab !== 'sunday' && query.tab !== 'secret'
+    searchParams?.get('tab') !== 'saturday' &&
+    searchParams?.get('tab') !== 'sunday'
       ? 'predanycon'
-      : query.tab;
+      : searchParams?.get('tab');
 
   const updateData = ({ gamesJoined: gJ, participants: p }: ScheduleData) => {
     setParticipants(p);
@@ -59,11 +62,6 @@ const Schedule = ({
           <li className={`${selectedTab === 'sunday' ? 'is-active' : ''}`}>
             <ScheduleTab id="sunday" title="Sunday" date="July 10" />
           </li>
-          {selectedTab === 'secret' && (
-            <li className={`${selectedTab === 'secret' ? 'is-active' : ''}`}>
-              <ScheduleTab id="secret" title="Secret" date="???" />
-            </li>
-          )}
         </ul>
       </div>
       <section className="section">

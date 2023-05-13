@@ -1,18 +1,11 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next';
 import {
   AttributeValue,
   DynamoDBClient,
   GetItemCommand,
   PutItemCommand,
 } from '@aws-sdk/client-dynamodb';
-import { isValidUsername } from '../../lib/usernames';
-import { Participants } from '../../lib/types';
-
-type Data = {
-  participants: Participants;
-  gamesJoined: string[];
-};
+import { isValidUsername } from './usernames';
+import { Participants } from './types';
 
 const gameChoices = [
   'arknova',
@@ -120,33 +113,26 @@ const putParticipants = async (version: string, participants: Participants) => {
   return true;
 };
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
+export async function participateAction(
+  username: string,
+  action: 'join' | 'leave',
+  game: string
 ) {
-  const username: string = Array.isArray(req.query.username)
-    ? req.query.username[0]
-    : req.query.username || '';
-  if (
-    req.method === 'POST' &&
-    req.query.username &&
-    isValidUsername(username)
-  ) {
-    const participantsItem = await getParticipantsItem();
-    const participants = await getParticipants(participantsItem);
-    let succuss = false;
+  const participantsItem = await getParticipantsItem();
+  const participants = await getParticipants(participantsItem);
+  let succuss = false;
+  let gamesJoined: string[] = [];
+
+  if (isValidUsername(username)) {
     try {
-      const postJson: { action: string; game: string } = JSON.parse(req.body);
-      if (postJson.action === 'join') {
-        participants[postJson.game].push(username);
+      if (action === 'join') {
+        participants[game].push(username);
         succuss = await putParticipants(
           participantsItem?.version?.N || '0',
           participants
         );
-      } else if (postJson.action === 'leave') {
-        participants[postJson.game] = participants[postJson.game].filter(
-          (u) => u !== username
-        );
+      } else if (action === 'leave') {
+        participants[game] = participants[game].filter((u) => u !== username);
         succuss = await putParticipants(
           participantsItem?.version?.N || '0',
           participants
@@ -154,20 +140,23 @@ export default async function handler(
       }
     } catch (e) {}
 
-    const gamesJoined = participantsToGamesJoined(participants, username);
-    res.status(succuss ? 200 : 500).json({
-      participants,
-      gamesJoined: gamesJoined,
-    });
-  } else {
-    const participants = await getParticipants();
-    const gamesJoined =
-      req.query.username && isValidUsername(username)
-        ? participantsToGamesJoined(participants, username)
-        : [];
-    res.status(200).json({
-      participants,
-      gamesJoined: gamesJoined,
-    });
+    gamesJoined = participantsToGamesJoined(participants, username);
   }
+  return {
+    succuss,
+    participants,
+    gamesJoined,
+  };
+}
+
+export async function getScheduleData(username?: string) {
+  const participants = await getParticipants();
+  const gamesJoined =
+    username && isValidUsername(username)
+      ? participantsToGamesJoined(participants, username)
+      : [];
+  return {
+    participants,
+    gamesJoined: gamesJoined,
+  };
 }

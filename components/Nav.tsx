@@ -1,12 +1,14 @@
+'use client';
+
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { GiCardJoker, GiSherlockHolmes } from 'react-icons/gi';
+import { usePathname } from 'next/navigation';
+import { GiCardJoker } from 'react-icons/gi';
 import { FiUser } from 'react-icons/fi';
 import styles from '../styles/Nav.module.scss';
 
 const Nav = () => {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
   const [isActive, setIsActive] = useState(false);
   return (
     <nav className={`navbar ${styles['nav-container']}`}>

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { FiCalendar } from 'react-icons/fi';
 
 interface ScheduleTabProps {
@@ -8,18 +9,18 @@ interface ScheduleTabProps {
 }
 
 const ScheduleTab = ({ id, date, title }: ScheduleTabProps) => {
+  const pathname = usePathname();
   return (
-    (<Link
-      href={{ pathname: '/', query: { tab: id } }}
-      className="is-flex is-flex-direction-column">
-
+    <Link
+      href={{ pathname, query: { tab: id } }}
+      className="is-flex is-flex-direction-column"
+    >
       <span className="icon is-medium mx-0">
         <FiCalendar size="1.5em" />
       </span>
       <span className="is-size-7">{date}</span>
       <span>{title}</span>
-
-    </Link>)
+    </Link>
   );
 };
 

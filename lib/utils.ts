@@ -1,5 +1,5 @@
-import { useCookies } from 'react-cookie';
-import { isValidUsername } from './usernames';
+import { usePathname } from 'next/navigation';
+import { validateUsername } from './usernames';
 
 interface IDed {
   id: string;
@@ -10,11 +10,15 @@ export const isGameJoined = (game: IDed, gamesJoined: string[]): boolean => {
 };
 
 // this cannot be in 'usernames' where it might make more sense because
-// that file is imported by the server and the server doesn't support react-cookie
+// that file is imported by the server and the server doesn't support
+// localstorage or usePathname
 export const useUsername = (): string => {
-  const [cookies] = useCookies(['username']);
-  if (isValidUsername(cookies.username)) {
-    return cookies.username;
-  }
-  return 'Mary Elizabeth';
+  const pathname = usePathname();
+  const usernamePath = validateUsername(
+    pathname.slice(pathname.lastIndexOf('/') + 1)
+  );
+  const usernameLS = validateUsername(
+    localStorage.getItem('username') || undefined
+  );
+  return usernamePath || usernameLS || 'Mary Elizabeth';
 };

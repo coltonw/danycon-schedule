@@ -1,12 +1,12 @@
-import type { NextPage } from 'next';
-import { useRouter } from 'next/router';
+'use client';
+
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FiUser } from 'react-icons/fi';
-import { validateUsername } from '../lib/usernames';
+import { validateUsername } from '../../lib/usernames';
 
-const Login: NextPage = () => {
-  const usernameLS = localStorage.getItem('username');
-  const [username, setUsername] = useState(usernameLS || '');
+const Login = () => {
+  const [username, setUsername] = useState('');
   const [invalid, setInvalid] = useState(false);
   const router = useRouter();
 
@@ -14,8 +14,8 @@ const Login: NextPage = () => {
     const validated = validateUsername(username);
     if (validated) {
       setInvalid(false);
-      localStorage.setItem('username', username);
-      router.push(`/schedule/${username}`);
+      localStorage.setItem('username', validated);
+      router.push(`/schedule/${validated}`);
     } else {
       setInvalid(true);
     }

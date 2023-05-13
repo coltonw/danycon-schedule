@@ -57,31 +57,27 @@ const ChooseGameOption = ({
                 className="button is-link is-outlined is-fullwidth"
                 onClick={async () => {
                   if (joined) {
-                    const resp = await fetch(
-                      `/api/games?username=${username}`,
-                      {
-                        method: 'POST',
-                        body: JSON.stringify({
-                          action: 'leave',
-                          game: id,
-                        }),
-                      }
-                    );
+                    const resp = await fetch(`/api/games`, {
+                      method: 'POST',
+                      body: JSON.stringify({
+                        username,
+                        action: 'leave',
+                        game: id,
+                      }),
+                    });
                     if (resp.status === 200) {
                       const data = await resp.json();
                       updateData(data);
                     }
                   } else if (!joinedGamesExist) {
-                    const resp = await fetch(
-                      `/api/games?username=${username}`,
-                      {
-                        method: 'POST',
-                        body: JSON.stringify({
-                          action: 'join',
-                          game: id,
-                        }),
-                      }
-                    );
+                    const resp = await fetch(`/api/games`, {
+                      method: 'POST',
+                      body: JSON.stringify({
+                        username,
+                        action: 'join',
+                        game: id,
+                      }),
+                    });
                     if (resp.status === 200) {
                       const data = await resp.json();
                       updateData(data);

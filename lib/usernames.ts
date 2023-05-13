@@ -16,8 +16,8 @@ const inputToUsername: { [key: string]: string } = {
 
 const validUsernames = new Set(Object.values(inputToUsername));
 
-export const validateUsername = (input: string): string | undefined => {
-  return inputToUsername[input.toLowerCase().trim()];
+export const validateUsername = (input?: string): string | undefined => {
+  return input && inputToUsername[input.toLowerCase().trim()];
 };
 
 export const isValidUsername = (username: string) => {
