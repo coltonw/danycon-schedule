@@ -13,14 +13,12 @@ const Nav = () => {
       <div className="container">
         <div className="navbar-brand">
           <Link href="/" className="navbar-item">
-
             <span className="icon-text is-align-items-center">
               <span className="icon is-large">
                 <GiCardJoker size="2em" />
               </span>
               <span className="is-size-3 has-text-weight-bold">Danycon</span>
             </span>
-
           </Link>
           <div
             className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
@@ -35,22 +33,13 @@ const Nav = () => {
           <div className="navbar-end">
             {pathname !== '/login' && (
               <>
-                <Link href="/" className="navbar-item">
+                <Link href="/schedule" className="navbar-item">
                   Schedule
                 </Link>
-                <Link href="/hunt" className="navbar-item">
-
-                  <span className="icon">
-                    <GiSherlockHolmes size="1.5em" />
-                  </span>
-
-                </Link>
                 <Link href="/login" className="navbar-item">
-
                   <span className="icon">
                     <FiUser size="1.5em" />
                   </span>
-
                 </Link>
               </>
             )}
