@@ -1,32 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import ScheduleTab from './ScheduleTab';
-import ScheduleItem from './ScheduleItem';
-import ChooseGame from './ChooseGame';
+import { useState } from 'react';
 import {
+  GiAncientColumns,
+  GiBriefcase,
   GiCardJoker,
-  GiCakeSlice,
-  GiFairy,
-  GiLaserSparks,
-  GiMushroomHouse,
-  GiRaining,
-  GiCookie,
-  GiFamilyHouse,
-  GiPerspectiveDiceSixFacesRandom,
-  GiMeal,
-  GiPhotoCamera,
-  GiBeerStein,
   GiChalkOutlineMurder,
-  GiElephant,
-  GiClover,
+  GiCoffeeCup,
   GiCommercialAirplane,
-  GiSherlockHolmes,
+  GiElephant,
+  GiFamilyHouse,
+  GiHand,
+  GiHorseshoe,
+  GiMeal,
   GiPartyFlags,
-  GiSunglasses,
+  GiPerspectiveDiceSixFacesRandom,
+  GiPresent,
+  GiTrophy,
+  GiWireCoil,
 } from 'react-icons/gi';
 import { ScheduleData } from '../lib/types';
+import ChooseGame from './ChooseGame';
+import ScheduleItem from './ScheduleItem';
+import ScheduleTab from './ScheduleTab';
 
 const Schedule = ({
   gamesJoined: initialGamesJoined,
@@ -53,14 +52,17 @@ const Schedule = ({
             <ScheduleTab
               id="predanycon"
               title="Pre-Danycon"
-              date="July 1 - 8"
+              date="May 17 - 18"
             />
           </li>
+          <li className={`${selectedTab === 'friday' ? 'is-active' : ''}`}>
+            <ScheduleTab id="saturday" title="Saturday" date="May 19" />
+          </li>
           <li className={`${selectedTab === 'saturday' ? 'is-active' : ''}`}>
-            <ScheduleTab id="saturday" title="Saturday" date="July 9" />
+            <ScheduleTab id="saturday" title="Saturday" date="May 20" />
           </li>
           <li className={`${selectedTab === 'sunday' ? 'is-active' : ''}`}>
-            <ScheduleTab id="sunday" title="Sunday" date="July 10" />
+            <ScheduleTab id="sunday" title="Sunday" date="May 21" />
           </li>
         </ul>
       </div>
@@ -69,70 +71,99 @@ const Schedule = ({
           {selectedTab === 'predanycon' && (
             <>
               <ScheduleItem
-                time="July 1"
-                title="Lexi's birthday!"
-                icon={<GiCakeSlice size="2em" />}
+                time="Wednesday, May 17"
+                title="Mandy and Bailey arrive"
+                icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-danger"
+              ></ScheduleItem>
+              <ScheduleItem
+                time="Thursday, May 18, evening"
+                title="Games with Mandy and Bailey"
+                icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
               >
-                <p>Lobster? Cake? Ice cream? Whatever Lexi wants she gets!</p>
-                <p>
-                  Mark needs to be picked up from the airport late at night.
-                </p>
+                Bailey and Mandy get to pick!
               </ScheduleItem>
               <ScheduleItem
-                time="July 2"
-                title="Story Land"
-                icon={<GiFairy size="2em" />}
+                time="Thursday, May 18, nightish"
+                title="Mark and Erin arrive"
+                icon={<GiCommercialAirplane size="2em" />}
+                iconColor="has-text-info"
+              >
+                No idea what time. It is a real mystery!!!
+              </ScheduleItem>
+              <ScheduleItem
+                time="Thursday, May 18, 11:10pm"
+                title="Jesse and Mary Elizabeth arrive"
+                icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-success"
               >
-                Condo board gaming possible
+                Will is going to pick them up. Flight is Southwest 3143.
               </ScheduleItem>
+            </>
+          )}
+          {selectedTab === 'friday' && (
+            <>
               <ScheduleItem
-                time="July 3"
-                title="Santa's Village"
-                icon={<GiMushroomHouse size="2em" />}
-              />
-              <ScheduleItem
-                time="July 4"
-                title="4th of July!"
-                icon={<GiLaserSparks size="2em" />}
-                iconColor="has-text-link"
-              />
-              <ScheduleItem
-                time="July 5"
-                title="Work"
-                icon={<GiRaining size="2em" />}
-              />
-              <ScheduleItem
-                time="July 6"
-                title="Will's birthday!"
-                icon={<GiCookie size="2em" />}
+                time="Morning"
+                title="Gift Bags"
+                icon={<GiPresent size="2em" />}
                 iconColor="has-text-warning"
               />
+              <ScheduleItem
+                time="Daytime"
+                title='"Work" and gaming'
+                icon={<GiBriefcase size="2em" />}
+                iconColor="has-text-warning"
+              >
+                Lexi, Mark, Mandy, and Will are taking the day off. Others are
+                going to be working really hard 😉. One of the games we will
+                play is this:
+                <br />
+                <Link href="https://boardgamegeek.com/boardgame/302723/forgotten-waters">
+                  <Image
+                    src="https://cf.geekdo-images.com/gLnzfyJio2MYbG9J-uQSiQ__itemrep/img/98jkfiTjNcRXVr58JG0IaFDKXuo=/fit-in/246x300/filters:strip_icc()/pic5253984.jpg"
+                    width={128}
+                    height={128}
+                    alt="forgottenwaters"
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                    }}
+                  />
+                </Link>
+              </ScheduleItem>
+              <ScheduleItem
+                time="Early evening"
+                title="Ann and Ed visit"
+                icon={<GiHand size="2em" />}
+                iconColor="has-text-danger"
+              >
+                Ann and Ed will be dropping by to say hi to everyone and pick up
+                Julius and Patricia.
+              </ScheduleItem>
               <ChooseGame
-                time="Thursday, July 7 evening"
-                title="Ark Nova or Forgotten Waters"
+                time="Night"
+                title="KuZOOkA or Paleo"
                 icon={<GiElephant size="2em" />}
                 games={[
                   {
-                    id: 'arknova',
+                    id: 'kazooka',
                     image: {
-                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1635175402844',
+                      src: 'https://cf.geekdo-images.com/0b4mi9y_42CqJ5GFBFiNFA__itemrep/img/IQIeLfl6sFGch_TuysCy0lXyv5Q=/fit-in/246x300/filters:strip_icc()/pic6680096.jpg',
+                      width: 87,
+                      height: 128,
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/356742/kuzooka',
+                  },
+                  {
+                    id: 'paleo',
+                    image: {
+                      src: 'https://cf.geekdo-images.com/85t1wkwgvh3d2mmjsRcDrw__itemrep/img/5Wx2IlXzKh8HmBD-_5Rm2b1YjO4=/fit-in/246x300/filters:strip_icc()/pic6039256.jpg',
                       width: 128,
                       height: 128,
                     },
-                    bggLink:
-                      'https://boardgamegeek.com/boardgame/342942/ark-nova',
-                  },
-                  {
-                    id: 'forgottenwaters',
-                    image: {
-                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1579714457850',
-                      width: 112,
-                      height: 128,
-                    },
-                    bggLink:
-                      'https://boardgamegeek.com/boardgame/302723/forgotten-waters',
+                    bggLink: 'https://boardgamegeek.com/boardgame/300531/paleo',
                   },
                 ]}
                 gamesJoined={gamesJoined}
@@ -140,52 +171,59 @@ const Schedule = ({
                 updateData={updateData}
               />
               <ScheduleItem
-                time="Friday, July 8 evening"
-                title="Dinner at the summer house"
-                icon={<GiSunglasses size="2em" />}
-                iconColor="has-text-link"
-              />
-              <ScheduleItem
-                time="Friday, July 8 night"
-                title="Party games!"
+                time="Late"
+                title="Party Games"
                 icon={<GiPartyFlags size="2em" />}
                 iconColor="has-text-danger"
-              />
+              >
+                <Link href="https://boardgamegeek.com/boardgame/246693/funky-chicken">
+                  <Image
+                    src="https://cf.geekdo-images.com/7AH1LKp4yNuK42hXuELxXA__itemrep/img/TvD46rh6VpxbKMwAMmaCs16U6cM=/fit-in/246x300/filters:strip_icc()/pic4256975.jpg"
+                    width={128}
+                    height={128}
+                    alt="funkychicken"
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                    }}
+                  />
+                </Link>
+              </ScheduleItem>
             </>
           )}
           {selectedTab === 'saturday' && (
             <>
               <ScheduleItem
                 time="Morning"
-                title="Scavenger Hunt"
-                icon={<GiSherlockHolmes size="2em" />}
+                title="Open gaming"
+                icon={<GiCoffeeCup size="2em" />}
                 iconColor="has-text-warning"
               />
               <ChooseGame
-                time="10:00am"
-                title="Meadow or Merchant's Cove"
-                icon={<GiClover size="2em" />}
-                iconColor="has-text-success"
+                time="9:00am"
+                title="Mosaic or Lost Ruins of Arnak"
+                icon={<GiAncientColumns size="2em" />}
+                iconColor="has-text-danger"
                 games={[
                   {
-                    id: 'meadow',
+                    id: 'mosaic',
                     image: {
-                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629322579564.jpg',
-                      width: 128,
+                      src: 'https://cf.geekdo-images.com/hRym3ngIdndJT2hhOURjMw__itemrep/img/wV4jfPjIen9T4CLhiSlcfeWoQtk=/fit-in/246x300/filters:strip_icc()/pic7414594.jpg',
+                      width: 99,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/314491/meadow',
+                      'https://boardgamegeek.com/boardgame/329551/mosaic-story-civilization',
                   },
                   {
-                    id: 'merchantscove',
+                    id: 'lostruinsofarnak',
                     image: {
-                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1622651478720',
+                      src: 'https://cf.geekdo-images.com/6GqH14TJJhza86BX5HCLEQ__itemrep/img/ETni1QwddAVjM-xLhciF0UM0FxQ=/fit-in/246x300/filters:strip_icc()/pic5674958.jpg',
                       width: 128,
-                      height: 128,
+                      height: 89,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/277700/merchants-cove',
+                      'https://boardgamegeek.com/boardgame/312484/lost-ruins-arnak',
                   },
                 ]}
                 gamesJoined={gamesJoined}
@@ -193,34 +231,35 @@ const Schedule = ({
                 updateData={updateData}
               />
               <ScheduleItem
-                time="12:00pm"
+                time="12:30pm"
                 title="Lunch"
                 icon={<GiMeal size="2em" />}
               />
               <ChooseGame
-                time="1:30pm"
-                title="Picture Perfect or Awkward Guests"
-                icon={<GiPhotoCamera size="2em" />}
+                time="2:00pm"
+                title="Big Top or Turing Machine"
+                icon={<GiWireCoil size="2em" />}
+                iconColor="has-text-grey-dark"
                 games={[
                   {
-                    id: 'pictureperfect',
+                    id: 'bigtop',
                     image: {
-                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1633968068549',
+                      src: 'https://cf.geekdo-images.com/_Y6g4FXjeolGkh2Uut0qaQ__itemrep/img/VBhCMJYvB9w-aT8l4bhtmmq2SsA=/fit-in/246x300/filters:strip_icc()/pic7133667.jpg',
                       width: 128,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/299963/picture-perfect',
+                      'https://boardgamegeek.com/boardgame/369899/big-top',
                   },
                   {
-                    id: 'awkwardguests',
+                    id: 'turingmachine',
                     image: {
-                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1541660464696',
+                      src: 'https://cf.geekdo-images.com/un5yundwtC6q1U9gWTY8Yw__itemrep/img/dmF4UID5Nz-j_7Pfd1rnQTukUD8=/fit-in/246x300/filters:strip_icc()/pic6883492.png',
                       width: 128,
-                      height: 98,
+                      height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/188866/awkward-guests',
+                      'https://boardgamegeek.com/boardgame/356123/turing-machine',
                   },
                 ]}
                 gamesJoined={gamesJoined}
@@ -228,14 +267,20 @@ const Schedule = ({
                 updateData={updateData}
               />
               <ScheduleItem
-                time="4:00pm"
-                title="Puzzled pint"
-                icon={<GiBeerStein size="2em" />}
-                iconColor="has-text-warning"
+                time="3:00pm"
+                title="Ready Set Bet Prize Match"
+                icon={<GiHorseshoe size="2em" />}
+                iconColor="has-text-grey-light"
+              />
+              <ScheduleItem
+                time="4:30pm"
+                title="Prizes"
+                icon={<GiTrophy size="2em" />}
+                iconColor="has-text-primary"
               />
               <ScheduleItem
                 time="5:00pm"
-                title="Open gaming"
+                title="Open Gaming"
                 icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
                 iconColor="has-text-link"
               />
@@ -243,74 +288,44 @@ const Schedule = ({
                 time="6:30pm"
                 title="Dinner and Murder"
                 icon={<GiChalkOutlineMurder size="2em" />}
-              />
+              >
+                How to Host a Murder: The Last Train from Paris
+              </ScheduleItem>
               <ScheduleItem
                 time="Late"
-                title="Party games"
+                title="Party Games"
                 icon={<GiCardJoker size="2em" />}
-                iconColor="has-text-danger"
+                iconColor="has-text-success"
               />
             </>
           )}
           {selectedTab === 'sunday' && (
             <>
               <ScheduleItem
-                time="9:30am"
-                title="Take Jesse to the airport"
-                icon={<GiCommercialAirplane size="2em" />}
-              />
-              <ChooseGame
-                time="10:00am"
-                title="Cubitos or Calico"
+                time="Morning"
+                title="Open Gaming"
                 icon={<GiCardJoker size="2em" />}
-                iconColor="has-text-primary"
-                games={[
-                  {
-                    id: 'cubitos',
-                    image: {
-                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629324801304.jpg',
-                      width: 128,
-                      height: 128,
-                    },
-                    bggLink:
-                      'https://boardgamegeek.com/boardgame/298069/cubitos',
-                  },
-                  {
-                    id: 'calico',
-                    image: {
-                      src: 'https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1592695551678',
-                      width: 128,
-                      height: 128,
-                    },
-                    bggLink:
-                      'https://boardgamegeek.com/boardgame/283155/calico',
-                  },
-                ]}
-                gamesJoined={gamesJoined}
-                participants={participants}
-                updateData={updateData}
+                iconColor="has-text-danger"
               />
               <ScheduleItem
                 time="12:00pm"
-                title="Lunch"
-                icon={<GiMeal size="2em" />}
-              />
-              <ScheduleItem
-                time="1:30pm"
-                title="Pick up kids from Meemaw and Meepaw's house"
-                icon={<GiFamilyHouse size="2em" />}
-              />
-              <ScheduleItem
-                time="3:30pm"
-                title="Take Mark, Erin, Finn, and Ari to the airport"
+                title="Take Mark, Erin, Jesse, and Mary Elizabeth back to the airport"
                 icon={<GiCommercialAirplane size="2em" />}
               />
               <ScheduleItem
                 time="Any time left"
-                title="Open gaming"
+                title="Open Gaming"
                 icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
                 iconColor="has-text-link"
               />
+              <ScheduleItem
+                time="???"
+                title="Pick up kids from Meemah and Meepah's house"
+                icon={<GiFamilyHouse size="2em" />}
+              >
+                Maybe they will drop them off? We haven't actually planned this
+                far. Are you still reading this?
+              </ScheduleItem>
             </>
           )}
         </div>

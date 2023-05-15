@@ -4,18 +4,16 @@ import {
   GetItemCommand,
   PutItemCommand,
 } from '@aws-sdk/client-dynamodb';
-import { isValidUsername } from './usernames';
 import { Participants } from './types';
+import { isValidUsername } from './usernames';
 
 const gameChoices = [
-  'arknova',
-  'forgottenwaters',
-  'meadow',
-  'merchantscove',
-  'pictureperfect',
-  'awkwardguests',
-  'cubitos',
-  'calico',
+  'kazooka',
+  'paleo',
+  'mosaic',
+  'lostruinsofarnak',
+  'bigtop',
+  'turingmachine',
 ];
 
 const participantsToGamesJoined = (
@@ -29,14 +27,12 @@ const participantsToGamesJoined = (
 };
 
 const initialParticipants: Participants = {
-  arknova: [],
-  forgottenwaters: [],
-  meadow: [],
-  merchantscove: [],
-  pictureperfect: [],
-  awkwardguests: [],
-  cubitos: [],
-  calico: [],
+  kazooka: [],
+  paleo: [],
+  mosaic: [],
+  lostruinsofarnak: [],
+  bigtop: [],
+  turingmachine: [],
 };
 
 const getParticipantsItem = async (): Promise<

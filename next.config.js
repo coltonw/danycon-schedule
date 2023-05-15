@@ -6,6 +6,7 @@ const nextConfig = {
       's3-us-west-1.amazonaws.com',
       'd1lu8vbgap5ai0.cloudfront.net',
       'c.tenor.com',
+      'cf.geekdo-images.com',
     ],
   },
 };
