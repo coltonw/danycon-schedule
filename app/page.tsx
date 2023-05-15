@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 import { validateUsername } from '../lib/usernames';
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
     } else {
       push('/login');
     }
-  }, []);
+  }, [push]);
   return <div />;
 };
 

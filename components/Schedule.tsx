@@ -342,8 +342,8 @@ const Schedule = ({
                 title="Pick up kids from Meemah and Meepah's house"
                 icon={<GiFamilyHouse size="2em" />}
               >
-                Maybe they will drop them off? We haven't actually planned this
-                far. Are you still reading this?
+                Maybe they will drop them off? We haven&apos;t actually planned
+                this far. Are you still reading this?
               </ScheduleItem>
             </>
           )}
