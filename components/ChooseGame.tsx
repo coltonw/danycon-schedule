@@ -51,9 +51,7 @@ const ChooseGame = ({
               ) : joinedGamesExist ? (
                 <FiChevronDown />
               ) : (
-                <div className={`tag is-dark ${iconColor || ''}`}>
-                  Choose Game!
-                </div>
+                <div className="tag is-dark">Choose Game!</div>
               )}
             </div>
           </div>

@@ -15,6 +15,7 @@ import {
   GiFamilyHouse,
   GiHand,
   GiHorseshoe,
+  GiMagnifyingGlass,
   GiMeal,
   GiPartyFlags,
   GiPerspectiveDiceSixFacesRandom,
@@ -34,10 +35,22 @@ const Schedule = ({
   const searchParams = useSearchParams();
   const [participants, setParticipants] = useState(initialParticipants);
   const [gamesJoined, setGamesJoined] = useState(initialGamesJoined);
+  let defaultTab = 'predanycon';
+  const time = new Date().getTime();
+  // We use 3am (7am utc) to mark the start of the next danycon day
+  if (time > new Date('2023-05-21T07:00:00.000Z').getTime()) {
+    defaultTab = 'sunday';
+  } else if (time > new Date('2023-05-20T07:00:00.000Z').getTime()) {
+    defaultTab = 'saturday';
+  } else if (time > new Date('2023-05-19T07:00:00.000Z').getTime()) {
+    defaultTab = 'friday';
+  }
   const selectedTab =
+    searchParams?.get('tab') !== 'predanycon' &&
+    searchParams?.get('tab') !== 'friday' &&
     searchParams?.get('tab') !== 'saturday' &&
     searchParams?.get('tab') !== 'sunday'
-      ? 'predanycon'
+      ? defaultTab
       : searchParams?.get('tab');
 
   const updateData = ({ gamesJoined: gJ, participants: p }: ScheduleData) => {
@@ -56,7 +69,7 @@ const Schedule = ({
             />
           </li>
           <li className={`${selectedTab === 'friday' ? 'is-active' : ''}`}>
-            <ScheduleTab id="saturday" title="Saturday" date="May 19" />
+            <ScheduleTab id="friday" title="Friday" date="May 19" />
           </li>
           <li className={`${selectedTab === 'saturday' ? 'is-active' : ''}`}>
             <ScheduleTab id="saturday" title="Saturday" date="May 20" />
@@ -107,7 +120,7 @@ const Schedule = ({
                 time="Morning"
                 title="Gift Bags"
                 icon={<GiPresent size="2em" />}
-                iconColor="has-text-warning"
+                iconColor="has-text-link"
               />
               <ScheduleItem
                 time="Daytime"
@@ -141,6 +154,12 @@ const Schedule = ({
                 Ann and Ed will be dropping by to say hi to everyone and pick up
                 Julius and Patricia.
               </ScheduleItem>
+              <ScheduleItem
+                time="Late evening"
+                title="Chronicles of Crime"
+                icon={<GiMagnifyingGlass size="2em" />}
+                iconColor="has-text-success"
+              />
               <ChooseGame
                 time="Night"
                 title="KuZOOkA or Paleo"
