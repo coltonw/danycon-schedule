@@ -84,6 +84,11 @@ const Schedule = ({
           {selectedTab === 'predanycon' && (
             <>
               <ScheduleItem
+                time="Thursday, May 18, we hope"
+                title="Mark arrives"
+                icon={<GiCommercialAirplane size="2em" />}
+              />
+              <ScheduleItem
                 time="Wednesday, May 17"
                 title="Mandy and Bailey arrive"
                 icon={<GiCommercialAirplane size="2em" />}
@@ -91,18 +96,18 @@ const Schedule = ({
               ></ScheduleItem>
               <ScheduleItem
                 time="Thursday, May 18, evening"
-                title="Games with Mandy and Bailey"
+                title="Games with Mark, Mandy, and Bailey"
                 icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
               >
-                Bailey and Mandy get to pick!
+                Guests get to pick the game!
               </ScheduleItem>
               <ScheduleItem
-                time="Thursday, May 18, nightish"
-                title="Mark and Erin arrive"
+                time="Thursday, May 18, we hope"
+                title="Erin arrives"
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-info"
               >
-                No idea what time. It is a real mystery!!!
+                No one knows what time, even Erin. It is a real mystery!!!
               </ScheduleItem>
               <ScheduleItem
                 time="Thursday, May 18, 11:10pm"
@@ -128,9 +133,9 @@ const Schedule = ({
                 icon={<GiBriefcase size="2em" />}
                 iconColor="has-text-warning"
               >
-                Lexi, Mark, Mandy, and Will are taking the day off. Others are
-                going to be working really hard 😉. One of the games we will
-                play is this:
+                Lexi, Mark, Mandy, Jesse, and Will are taking the day off.
+                Others are going to be working really hard 😉. One of the games
+                we will play is this:
                 <br />
                 <Link href="https://boardgamegeek.com/boardgame/302723/forgotten-waters">
                   <Image
