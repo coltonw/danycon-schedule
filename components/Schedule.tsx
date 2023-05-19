@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import {
   GiAncientColumns,
+  GiBaseballBat,
   GiBriefcase,
   GiCardJoker,
   GiChalkOutlineMurder,
@@ -102,14 +103,6 @@ const Schedule = ({
                 Guests get to pick the game!
               </ScheduleItem>
               <ScheduleItem
-                time="Thursday, May 18, we hope"
-                title="Erin arrives"
-                icon={<GiCommercialAirplane size="2em" />}
-                iconColor="has-text-info"
-              >
-                No one knows what time, even Erin. It is a real mystery!!!
-              </ScheduleItem>
-              <ScheduleItem
                 time="Thursday, May 18, 11:10pm"
                 title="Jesse and Mary Elizabeth arrive"
                 icon={<GiCommercialAirplane size="2em" />}
@@ -117,10 +110,26 @@ const Schedule = ({
               >
                 Will is going to pick them up. Flight is Southwest 3143.
               </ScheduleItem>
+              <ScheduleItem
+                time="Thursday, May 18, too late"
+                title="Erin takes microcation to Kentucky"
+                icon={<GiBaseballBat size="2em" />}
+                iconColor="has-text-warning"
+              >
+                Have fun at the Louisville Slugger Museum!
+              </ScheduleItem>
             </>
           )}
           {selectedTab === 'friday' && (
             <>
+              <ScheduleItem
+                time="Morning"
+                title="Erin actually arrives"
+                icon={<GiCommercialAirplane size="2em" />}
+                iconColor="has-text-info"
+              >
+                Mark is picking her up as I type this
+              </ScheduleItem>
               <ScheduleItem
                 time="Morning"
                 title="Gift Bags"
