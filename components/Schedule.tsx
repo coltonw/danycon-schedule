@@ -8,6 +8,7 @@ import {
   GiAncientColumns,
   GiBaseballBat,
   GiBriefcase,
+  GiBubbles,
   GiCardJoker,
   GiChalkOutlineMurder,
   GiCoffeeCup,
@@ -301,6 +302,12 @@ const Schedule = ({
               />
               <ScheduleItem
                 time="3:00pm"
+                title="Bubble Tea"
+                icon={<GiBubbles size="2em" />}
+                iconColor="has-text-link"
+              />
+              <ScheduleItem
+                time="3:15pm"
                 title="Ready Set Bet Prize Match"
                 icon={<GiHorseshoe size="2em" />}
                 iconColor="has-text-grey-light"
