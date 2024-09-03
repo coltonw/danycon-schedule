@@ -1,9 +1,9 @@
 $brown: hsl(27, 74, 23);
 
-$card-header-shadow: none;
-$warning: $brown;
-
-@import '~bulma/bulma';
+@use 'bulma/sass'; // with (
+// $card-header-shadow: none,
+// $warning: $brown
+// );
 
 .is-not-clickable-text {
   cursor: text;

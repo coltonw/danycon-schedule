@@ -6,23 +6,17 @@ import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import {
   GiAncientColumns,
-  GiBaseballBat,
   GiBriefcase,
-  GiBubbles,
   GiCardJoker,
   GiChalkOutlineMurder,
   GiCoffeeCup,
   GiCommercialAirplane,
-  GiElephant,
   GiFamilyHouse,
   GiHand,
-  GiHorseshoe,
-  GiMagnifyingGlass,
   GiMeal,
   GiPartyFlags,
   GiPerspectiveDiceSixFacesRandom,
   GiPresent,
-  GiTrophy,
   GiWireCoil,
 } from 'react-icons/gi';
 import { ScheduleData } from '../lib/types';
@@ -67,17 +61,17 @@ const Schedule = ({
             <ScheduleTab
               id="predanycon"
               title="Pre-Danycon"
-              date="May 17 - 18"
+              date="September 4-5"
             />
           </li>
           <li className={`${selectedTab === 'friday' ? 'is-active' : ''}`}>
-            <ScheduleTab id="friday" title="Friday" date="May 19" />
+            <ScheduleTab id="friday" title="Friday" date="September 6" />
           </li>
           <li className={`${selectedTab === 'saturday' ? 'is-active' : ''}`}>
-            <ScheduleTab id="saturday" title="Saturday" date="May 20" />
+            <ScheduleTab id="saturday" title="Saturday" date="September 7" />
           </li>
           <li className={`${selectedTab === 'sunday' ? 'is-active' : ''}`}>
-            <ScheduleTab id="sunday" title="Sunday" date="May 21" />
+            <ScheduleTab id="sunday" title="Sunday" date="September 8" />
           </li>
         </ul>
       </div>
@@ -86,80 +80,51 @@ const Schedule = ({
           {selectedTab === 'predanycon' && (
             <>
               <ScheduleItem
-                time="Thursday, May 18, we hope"
-                title="Mark arrives"
+                time="Wednesday, September 4th, sometime"
+                title="Mark possibly arrives"
                 icon={<GiCommercialAirplane size="2em" />}
               />
               <ScheduleItem
-                time="Wednesday, May 17"
-                title="Mandy and Bailey arrive"
+                time="Thursday, September 5th, sometime"
+                title="Erin possibly arrives"
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-danger"
               ></ScheduleItem>
               <ScheduleItem
-                time="Thursday, May 18, evening"
-                title="Games with Mark, Mandy, and Bailey"
+                time="Thursday, September 5th, 4:30pm"
+                title="Mandy and Bailey arrive"
+                icon={<GiCommercialAirplane size="2em" />}
+                iconColor="has-text-warning"
+              ></ScheduleItem>
+              <ScheduleItem
+                time="Thursday, September 5th, evening"
+                title="Games with folks who are here"
                 icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
               >
                 Guests get to pick the game!
               </ScheduleItem>
               <ScheduleItem
-                time="Thursday, May 18, 11:10pm"
+                time="Thursday, September 5th, 10:50pm"
                 title="Jesse and Mary Elizabeth arrive"
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-success"
-              >
-                Will is going to pick them up. Flight is Southwest 3143.
-              </ScheduleItem>
-              <ScheduleItem
-                time="Thursday, May 18, too late"
-                title="Erin takes microcation to Kentucky"
-                icon={<GiBaseballBat size="2em" />}
-                iconColor="has-text-warning"
-              >
-                Have fun at the Louisville Slugger Museum!
-              </ScheduleItem>
+              ></ScheduleItem>
             </>
           )}
           {selectedTab === 'friday' && (
             <>
               <ScheduleItem
                 time="Morning"
-                title="Erin actually arrives"
-                icon={<GiCommercialAirplane size="2em" />}
-                iconColor="has-text-info"
-              >
-                Mark is picking her up as I type this
-              </ScheduleItem>
-              <ScheduleItem
-                time="Morning"
-                title="Gift Bags"
+                title="Party favors"
                 icon={<GiPresent size="2em" />}
                 iconColor="has-text-link"
               />
               <ScheduleItem
                 time="Daytime"
-                title='"Work" and gaming'
+                title='"Work" and painting'
                 icon={<GiBriefcase size="2em" />}
                 iconColor="has-text-warning"
-              >
-                Lexi, Mark, Mandy, Jesse, and Will are taking the day off.
-                Others are going to be working really hard 😉. One of the games
-                we will play is this:
-                <br />
-                <Link href="https://boardgamegeek.com/boardgame/302723/forgotten-waters">
-                  <Image
-                    src="https://cf.geekdo-images.com/gLnzfyJio2MYbG9J-uQSiQ__itemrep/img/98jkfiTjNcRXVr58JG0IaFDKXuo=/fit-in/246x300/filters:strip_icc()/pic5253984.jpg"
-                    width={128}
-                    height={128}
-                    alt="forgottenwaters"
-                    style={{
-                      maxWidth: '100%',
-                      height: 'auto',
-                    }}
-                  />
-                </Link>
-              </ScheduleItem>
+              ></ScheduleItem>
               <ScheduleItem
                 time="Early evening"
                 title="Ann and Ed visit"
@@ -171,51 +136,23 @@ const Schedule = ({
               </ScheduleItem>
               <ScheduleItem
                 time="Late evening"
-                title="Chronicles of Crime"
-                icon={<GiMagnifyingGlass size="2em" />}
-                iconColor="has-text-success"
-              />
-              <ChooseGame
-                time="Night"
-                title="KuZOOkA or Paleo"
-                icon={<GiElephant size="2em" />}
-                games={[
-                  {
-                    id: 'kazooka',
-                    image: {
-                      src: 'https://cf.geekdo-images.com/0b4mi9y_42CqJ5GFBFiNFA__itemrep/img/IQIeLfl6sFGch_TuysCy0lXyv5Q=/fit-in/246x300/filters:strip_icc()/pic6680096.jpg',
-                      width: 87,
-                      height: 128,
-                    },
-                    bggLink:
-                      'https://boardgamegeek.com/boardgame/356742/kuzooka',
-                  },
-                  {
-                    id: 'paleo',
-                    image: {
-                      src: 'https://cf.geekdo-images.com/85t1wkwgvh3d2mmjsRcDrw__itemrep/img/5Wx2IlXzKh8HmBD-_5Rm2b1YjO4=/fit-in/246x300/filters:strip_icc()/pic6039256.jpg',
-                      width: 128,
-                      height: 128,
-                    },
-                    bggLink: 'https://boardgamegeek.com/boardgame/300531/paleo',
-                  },
-                ]}
-                gamesJoined={gamesJoined}
-                participants={participants}
-                updateData={updateData}
-              />
+                title="Dinner and Murder"
+                icon={<GiChalkOutlineMurder size="2em" />}
+              >
+                How to Host a Murder: Maiming of the Shrew
+              </ScheduleItem>
               <ScheduleItem
                 time="Late"
                 title="Party Games"
                 icon={<GiPartyFlags size="2em" />}
                 iconColor="has-text-danger"
               >
-                <Link href="https://boardgamegeek.com/boardgame/246693/funky-chicken">
+                <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
                   <Image
-                    src="https://cf.geekdo-images.com/7AH1LKp4yNuK42hXuELxXA__itemrep/img/TvD46rh6VpxbKMwAMmaCs16U6cM=/fit-in/246x300/filters:strip_icc()/pic4256975.jpg"
+                    src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
                     width={128}
                     height={128}
-                    alt="funkychicken"
+                    alt="thingsinrings"
                     style={{
                       maxWidth: '100%',
                       height: 'auto',
@@ -235,12 +172,12 @@ const Schedule = ({
               />
               <ChooseGame
                 time="9:00am"
-                title="Mosaic or Lost Ruins of Arnak"
+                title="Let's Go to Japan or Freelancers"
                 icon={<GiAncientColumns size="2em" />}
                 iconColor="has-text-danger"
                 games={[
                   {
-                    id: 'mosaic',
+                    id: 'letsgotojapan',
                     image: {
                       src: 'https://cf.geekdo-images.com/hRym3ngIdndJT2hhOURjMw__itemrep/img/wV4jfPjIen9T4CLhiSlcfeWoQtk=/fit-in/246x300/filters:strip_icc()/pic7414594.jpg',
                       width: 99,
@@ -250,14 +187,14 @@ const Schedule = ({
                       'https://boardgamegeek.com/boardgame/329551/mosaic-story-civilization',
                   },
                   {
-                    id: 'lostruinsofarnak',
+                    id: 'freelancers',
                     image: {
-                      src: 'https://cf.geekdo-images.com/6GqH14TJJhza86BX5HCLEQ__itemrep/img/ETni1QwddAVjM-xLhciF0UM0FxQ=/fit-in/246x300/filters:strip_icc()/pic5674958.jpg',
+                      src: 'https://cf.geekdo-images.com/DuZnEeI06_5UKpv4t28Kyg__itemrep/img/CYFNZ0Dxl0tCy_Il6-Jwcptrt3M=/fit-in/246x300/filters:strip_icc()/pic7429703.jpg',
                       width: 128,
-                      height: 89,
+                      height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/312484/lost-ruins-arnak',
+                      'https://boardgamegeek.com/boardgame/383206/freelancers-a-crossroads-game',
                   },
                 ]}
                 gamesJoined={gamesJoined}
@@ -299,24 +236,6 @@ const Schedule = ({
                 gamesJoined={gamesJoined}
                 participants={participants}
                 updateData={updateData}
-              />
-              <ScheduleItem
-                time="3:00pm"
-                title="Bubble Tea"
-                icon={<GiBubbles size="2em" />}
-                iconColor="has-text-link"
-              />
-              <ScheduleItem
-                time="3:15pm"
-                title="Ready Set Bet Prize Match"
-                icon={<GiHorseshoe size="2em" />}
-                iconColor="has-text-grey-light"
-              />
-              <ScheduleItem
-                time="4:30pm"
-                title="Prizes"
-                icon={<GiTrophy size="2em" />}
-                iconColor="has-text-primary"
               />
               <ScheduleItem
                 time="5:00pm"
