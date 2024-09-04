@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import {
+  GiBalloons,
   GiBriefcase,
   GiCardJoker,
   GiChalkOutlineMurder,
@@ -170,7 +171,7 @@ const Schedule = ({
           {selectedTab === 'saturday' && (
             <>
               <ScheduleItem
-                time="Morning"
+                time="Early morning"
                 title="Open gaming"
                 icon={<GiCoffeeCup size="2em" />}
                 iconColor="has-text-gray"
@@ -253,6 +254,11 @@ const Schedule = ({
                 </Link>
               </ScheduleItem>
               <ScheduleItem
+                time="6:30pm"
+                title="Dinner"
+                icon={<GiMeal size="2em" />}
+              />
+              <ScheduleItem
                 time="After dinner"
                 title="Dungeons, but also Dragons"
                 icon={<GiDoubleDragon size="2em" />}
@@ -268,6 +274,12 @@ const Schedule = ({
           )}
           {selectedTab === 'sunday' && (
             <>
+              <ScheduleItem
+                time="Early morning"
+                title="Open gaming"
+                icon={<GiCoffeeCup size="2em" />}
+                iconColor="has-text-gray"
+              />
               <ChooseGame
                 time="9:00am"
                 title="In the Footsteps of Darwin or Zoo Vadis"
@@ -367,6 +379,12 @@ const Schedule = ({
                 gamesJoined={gamesJoined}
                 participants={participants}
                 updateData={updateData}
+              />
+              <ScheduleItem
+                time="Late"
+                title="Party Games"
+                icon={<GiBalloons size="2em" />}
+                iconColor="has-text-danger"
               />
             </>
           )}
