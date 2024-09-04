@@ -184,12 +184,12 @@ const Schedule = ({
                   {
                     id: 'letsgotojapan',
                     image: {
-                      src: 'https://cf.geekdo-images.com/hRym3ngIdndJT2hhOURjMw__itemrep/img/wV4jfPjIen9T4CLhiSlcfeWoQtk=/fit-in/246x300/filters:strip_icc()/pic7414594.jpg',
-                      width: 99,
+                      src: 'https://cf.geekdo-images.com/OvhEUaF43CIjSFz8aF_yzQ__itemrep/img/oeWGeR5i9GMih_zL10x97Ctjh8E=/fit-in/246x300/filters:strip_icc()/pic6996891.jpg',
+                      width: 128,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/329551/mosaic-story-civilization',
+                      'https://boardgamegeek.com/boardgame/368173/lets-go-to-japan',
                   },
                   {
                     id: 'worldwonders',
@@ -262,7 +262,7 @@ const Schedule = ({
                 time="Late"
                 title="Party Games"
                 icon={<GiCardJoker size="2em" />}
-                iconColor="has-text-success"
+                iconColor="has-text-danger"
               />
             </>
           )}
@@ -272,7 +272,7 @@ const Schedule = ({
                 time="9:00am"
                 title="In the Footsteps of Darwin or Zoo Vadis"
                 icon={<GiTigerHead size="2em" />}
-                iconColor="has-text-link"
+                iconColor="has-text-warning"
                 games={[
                   {
                     id: 'inthefootstepsofdarwin',
@@ -327,6 +327,7 @@ const Schedule = ({
                 time="???"
                 title="Somehow recieve kids bach from Meemah and Meepah's house"
                 icon={<GiFamilyHouse size="2em" />}
+                iconColor="has-text-primary"
               >
                 Maybe they will drop them off? We haven&apos;t actually planned
                 this.

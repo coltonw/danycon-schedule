@@ -196,12 +196,12 @@ const MedievalPage = () => {
               </Link>
             </div>
             <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
+              <Link href="https://boardgamegeek.com/boardgame/285192/destinies">
                 <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
+                  src="https://cf.geekdo-images.com/oaD1ZQ3yGj6lacLdtqgdnQ__itemrep/img/hrN6o3gcBAhPaQyOhQT_n5dJ1hI=/fit-in/246x300/filters:strip_icc()/pic5558118.png"
                   width={128}
                   height={128}
-                  alt="thingsinrings"
+                  alt="destinies"
                   style={{
                     maxWidth: '100%',
                     height: 'auto',
@@ -210,12 +210,12 @@ const MedievalPage = () => {
               </Link>
             </div>
             <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
+              <Link href="https://boardgamegeek.com/boardgame/180325/elfenroads">
                 <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
+                  src="https://cf.geekdo-images.com/09vlLOV9Brex09klGgs5gg__itemrep/img/9V7kchyyu2gPMb0Sd9oqkMqR5mY=/fit-in/246x300/filters:strip_icc()/pic2578236.jpg"
                   width={128}
-                  height={128}
-                  alt="thingsinrings"
+                  height={97}
+                  alt="elfenroads"
                   style={{
                     maxWidth: '100%',
                     height: 'auto',
@@ -224,12 +224,12 @@ const MedievalPage = () => {
               </Link>
             </div>
             <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
+              <Link href="https://boardgamegeek.com/boardgame/293348/flesh-and-blood">
                 <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
-                  width={128}
+                  src="https://cf.geekdo-images.com/3uW8k-tB-Ke0R4mIAENBSA__itemrep/img/HH8WAQY2DvmTJoLI-8Amsq9My2I=/fit-in/246x300/filters:strip_icc()/pic5871917.png"
+                  width={92}
                   height={128}
-                  alt="thingsinrings"
+                  alt="fleshandblood"
                   style={{
                     maxWidth: '100%',
                     height: 'auto',
@@ -238,12 +238,12 @@ const MedievalPage = () => {
               </Link>
             </div>
             <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
+              <Link href="https://boardgamegeek.com/boardgame/27162/kingsburg">
                 <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
+                  src="https://cf.geekdo-images.com/pHFQxD8va6vOrrNfazVzsg__itemrep/img/WzjkX3JojYT4dCGx3fwrHkgwIJc=/fit-in/246x300/filters:strip_icc()/pic253057.jpg"
                   width={128}
                   height={128}
-                  alt="thingsinrings"
+                  alt="kingsburg"
                   style={{
                     maxWidth: '100%',
                     height: 'auto',
@@ -252,12 +252,12 @@ const MedievalPage = () => {
               </Link>
             </div>
             <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
+              <Link href="https://boardgamegeek.com/boardgame/110327/lords-of-waterdeep">
                 <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
-                  width={128}
+                  src="https://cf.geekdo-images.com/-hk8f8iGk_DyWyMrfiPBkg__itemrep/img/wo5yM8-yN8IbCzwMZsUak_m4U98=/fit-in/246x300/filters:strip_icc()/pic1116080.jpg"
+                  width={101}
                   height={128}
-                  alt="thingsinrings"
+                  alt="lordsofwaterdeep"
                   style={{
                     maxWidth: '100%',
                     height: 'auto',
@@ -266,12 +266,12 @@ const MedievalPage = () => {
               </Link>
             </div>
             <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
+              <Link href="https://boardgamegeek.com/boardgame/96848/mage-knight-board-game">
                 <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
+                  src="https://cf.geekdo-images.com/DUO2hz9AlLOH8p9ED-lCWg__itemrep/img/6OmGo3bidk3ma7U1v-oq_2pEJZI=/fit-in/246x300/filters:strip_icc()/pic1083380.jpg"
                   width={128}
-                  height={128}
-                  alt="thingsinrings"
+                  height={92}
+                  alt="mageknight"
                   style={{
                     maxWidth: '100%',
                     height: 'auto',
@@ -280,12 +280,12 @@ const MedievalPage = () => {
               </Link>
             </div>
             <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
+              <Link href="https://boardgamegeek.com/boardgame/463/magic-the-gathering">
                 <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
-                  width={128}
+                  src="https://cf.geekdo-images.com/CxJmNl4wR4InjqyNrMdBTw__itemrep/img/kBqgXHgOkEqyADW3Fk9c8KcCJRk=/fit-in/246x300/filters:strip_icc()/pic163749.jpg"
+                  width={91}
                   height={128}
-                  alt="thingsinrings"
+                  alt="magicthegathering"
                   style={{
                     maxWidth: '100%',
                     height: 'auto',
@@ -294,12 +294,12 @@ const MedievalPage = () => {
               </Link>
             </div>
             <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
+              <Link href="https://boardgamegeek.com/boardgame/277700/merchants-cove">
                 <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
+                  src="https://cf.geekdo-images.com/-JD8JLncWYMes9Q6YIgorg__itemrep/img/b1h2IBTekkN4hLIdXyH_ZxaDqXw=/fit-in/246x300/filters:strip_icc()/pic6136538.jpg"
                   width={128}
                   height={128}
-                  alt="thingsinrings"
+                  alt="merchantscove"
                   style={{
                     maxWidth: '100%',
                     height: 'auto',
@@ -308,12 +308,12 @@ const MedievalPage = () => {
               </Link>
             </div>
             <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
+              <Link href="https://boardgamegeek.com/boardgame/232043/queendomino">
                 <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
+                  src="https://cf.geekdo-images.com/_6VtTmeI4e7cORxFWRC7Og__itemrep/img/vHPqOYE1zACpaddnHtRsGADB7pE=/fit-in/246x300/filters:strip_icc()/pic3672901.png"
                   width={128}
                   height={128}
-                  alt="thingsinrings"
+                  alt="queendomino"
                   style={{
                     maxWidth: '100%',
                     height: 'auto',
@@ -322,12 +322,12 @@ const MedievalPage = () => {
               </Link>
             </div>
             <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
+              <Link href="https://boardgamegeek.com/boardgame/262712/res-arcana">
                 <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
+                  src="https://cf.geekdo-images.com/gcALy45JfcjyKUn6T3mBIQ__itemrep/img/kSOcgfYrimNkhTcWZzNgLa4CfvA=/fit-in/246x300/filters:strip_icc()/pic4422847.jpg"
                   width={128}
                   height={128}
-                  alt="thingsinrings"
+                  alt="resarcana"
                   style={{
                     maxWidth: '100%',
                     height: 'auto',
@@ -336,12 +336,12 @@ const MedievalPage = () => {
               </Link>
             </div>
             <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
+              <Link href="https://boardgamegeek.com/boardgame/278553/silver">
                 <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
+                  src="https://cf.geekdo-images.com/e7ii83ya4tVD-4f1E-Alpg__itemrep/img/9Kty-BN5ys6yfww0LCvAgk35kN8=/fit-in/246x300/filters:strip_icc()/pic4741826.jpg"
                   width={128}
-                  height={128}
-                  alt="thingsinrings"
+                  height={97}
+                  alt="silver"
                   style={{
                     maxWidth: '100%',
                     height: 'auto',
@@ -350,40 +350,12 @@ const MedievalPage = () => {
               </Link>
             </div>
             <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
+              <Link href="https://boardgamegeek.com/boardgame/120677/terra-mystica">
                 <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
-                  width={128}
+                  src="https://cf.geekdo-images.com/bre12I1YiXkZr7elvriz4A__itemrep/img/pKM9lklmQLXJx2xta9eR5NSezec=/fit-in/246x300/filters:strip_icc()/pic5375624.jpg"
+                  width={91}
                   height={128}
-                  alt="thingsinrings"
-                  style={{
-                    maxWidth: '100%',
-                    height: 'auto',
-                  }}
-                />
-              </Link>
-            </div>
-            <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
-                <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
-                  width={128}
-                  height={128}
-                  alt="thingsinrings"
-                  style={{
-                    maxWidth: '100%',
-                    height: 'auto',
-                  }}
-                />
-              </Link>
-            </div>
-            <div className="cell">
-              <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
-                <Image
-                  src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
-                  width={128}
-                  height={128}
-                  alt="thingsinrings"
+                  alt="terramystica"
                   style={{
                     maxWidth: '100%',
                     height: 'auto',
