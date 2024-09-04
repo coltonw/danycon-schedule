@@ -38,6 +38,9 @@ const Nav = () => {
                 <Link href="/schedule" className="navbar-item">
                   Schedule
                 </Link>
+                <Link href="/medieval" className="navbar-item">
+                  Medieval Games
+                </Link>
                 <Link href="/login" className="navbar-item">
                   <span className="icon">
                     <FiUser size="1.5em" />

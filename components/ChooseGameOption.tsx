@@ -44,7 +44,7 @@ const ChooseGameOption = ({
         </div>
         <div className="media-content">
           <article className="panel">
-            {participants[id].map((u) => (
+            {(participants[id] || []).map((u) => (
               <span key={u} className="panel-block">
                 <span className="panel-icon">
                   <FiUser />
@@ -54,7 +54,7 @@ const ChooseGameOption = ({
             ))}
             <div className="panel-block">
               <button
-                className="button is-link is-outlined is-fullwidth"
+                className={`button is-link is-fullwidth ${joinedGamesExist && !joined ? '' : 'is-outlined'}`}
                 onClick={async () => {
                   if (joined) {
                     const resp = await fetch(`/api/games`, {

@@ -5,19 +5,24 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import {
-  GiAncientColumns,
   GiBriefcase,
   GiCardJoker,
   GiChalkOutlineMurder,
   GiCoffeeCup,
   GiCommercialAirplane,
+  GiDoubleDragon,
   GiFamilyHouse,
+  GiFlyingFlag,
   GiHand,
+  GiKnightBanner,
+  GiLion,
+  GiMayanPyramid,
   GiMeal,
+  GiMountedKnight,
   GiPartyFlags,
   GiPerspectiveDiceSixFacesRandom,
   GiPresent,
-  GiWireCoil,
+  GiTigerHead,
 } from 'react-icons/gi';
 import { ScheduleData } from '../lib/types';
 import ChooseGame from './ChooseGame';
@@ -34,11 +39,11 @@ const Schedule = ({
   let defaultTab = 'predanycon';
   const time = new Date().getTime();
   // We use 3am (7am utc) to mark the start of the next danycon day
-  if (time > new Date('2023-05-21T07:00:00.000Z').getTime()) {
+  if (time > new Date('2024-09-08T07:00:00.000Z').getTime()) {
     defaultTab = 'sunday';
-  } else if (time > new Date('2023-05-20T07:00:00.000Z').getTime()) {
+  } else if (time > new Date('2024-09-07T07:00:00.000Z').getTime()) {
     defaultTab = 'saturday';
-  } else if (time > new Date('2023-05-19T07:00:00.000Z').getTime()) {
+  } else if (time > new Date('2024-09-06T07:00:00.000Z').getTime()) {
     defaultTab = 'friday';
   }
   const selectedTab =
@@ -168,13 +173,13 @@ const Schedule = ({
                 time="Morning"
                 title="Open gaming"
                 icon={<GiCoffeeCup size="2em" />}
-                iconColor="has-text-warning"
+                iconColor="has-text-gray"
               />
               <ChooseGame
                 time="9:00am"
-                title="Let's Go to Japan or Freelancers"
-                icon={<GiAncientColumns size="2em" />}
-                iconColor="has-text-danger"
+                title="Let's Go to Japan or World Wonders"
+                icon={<GiMayanPyramid size="2em" />}
+                iconColor="has-text-link"
                 games={[
                   {
                     id: 'letsgotojapan',
@@ -187,14 +192,14 @@ const Schedule = ({
                       'https://boardgamegeek.com/boardgame/329551/mosaic-story-civilization',
                   },
                   {
-                    id: 'freelancers',
+                    id: 'worldwonders',
                     image: {
-                      src: 'https://cf.geekdo-images.com/DuZnEeI06_5UKpv4t28Kyg__itemrep/img/CYFNZ0Dxl0tCy_Il6-Jwcptrt3M=/fit-in/246x300/filters:strip_icc()/pic7429703.jpg',
+                      src: 'https://cf.geekdo-images.com/GGi5aUL1dVQIrytxgXow4g__itemrep/img/cuDfJpNjCJQrNjJ4CL80U4u72B4=/fit-in/246x300/filters:strip_icc()/pic7604558.png',
                       width: 128,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/383206/freelancers-a-crossroads-game',
+                      'https://boardgamegeek.com/boardgame/365258/world-wonders',
                   },
                 ]}
                 gamesJoined={gamesJoined}
@@ -208,29 +213,29 @@ const Schedule = ({
               />
               <ChooseGame
                 time="2:00pm"
-                title="Big Top or Turing Machine"
-                icon={<GiWireCoil size="2em" />}
-                iconColor="has-text-grey-dark"
+                title="Harmonies or Spectral"
+                icon={<GiLion size="2em" />}
+                iconColor="has-text-warning"
                 games={[
                   {
-                    id: 'bigtop',
+                    id: 'harmonies',
                     image: {
-                      src: 'https://cf.geekdo-images.com/_Y6g4FXjeolGkh2Uut0qaQ__itemrep/img/VBhCMJYvB9w-aT8l4bhtmmq2SsA=/fit-in/246x300/filters:strip_icc()/pic7133667.jpg',
+                      src: 'https://cf.geekdo-images.com/A_XP2_VN3ugyqPhezowB_w__itemrep/img/wGng6fVAYRI5NKBX6x-pksZKJGI=/fit-in/246x300/filters:strip_icc()/pic8026369.png',
                       width: 128,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/369899/big-top',
+                      'https://boardgamegeek.com/boardgame/414317/harmonies',
                   },
                   {
-                    id: 'turingmachine',
+                    id: 'spectral',
                     image: {
-                      src: 'https://cf.geekdo-images.com/un5yundwtC6q1U9gWTY8Yw__itemrep/img/dmF4UID5Nz-j_7Pfd1rnQTukUD8=/fit-in/246x300/filters:strip_icc()/pic6883492.png',
-                      width: 128,
+                      src: 'https://cf.geekdo-images.com/m1r9KXSdtK8UDU54InCCYg__itemrep/img/GwQfcTRZDnafYTMKl8EP_66sIIU=/fit-in/246x300/filters:strip_icc()/pic7515218.png',
+                      width: 102,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/356123/turing-machine',
+                      'https://boardgamegeek.com/boardgame/388476/spectral',
                   },
                 ]}
                 gamesJoined={gamesJoined}
@@ -238,18 +243,21 @@ const Schedule = ({
                 updateData={updateData}
               />
               <ScheduleItem
-                time="5:00pm"
-                title="Open Gaming"
-                icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
-                iconColor="has-text-link"
-              />
-              <ScheduleItem
-                time="6:30pm"
-                title="Dinner and Murder"
-                icon={<GiChalkOutlineMurder size="2em" />}
+                time="3:30pm"
+                title="Medieval Gaming"
+                icon={<GiMountedKnight size="2em" />}
+                iconColor="has-text-gray"
               >
-                How to Host a Murder: The Last Train from Paris
+                <Link href="/medieval">
+                  Check out the list of medieval games here
+                </Link>
               </ScheduleItem>
+              <ScheduleItem
+                time="After dinner"
+                title="Dungeons, but also Dragons"
+                icon={<GiDoubleDragon size="2em" />}
+                iconColor="has-text-success"
+              ></ScheduleItem>
               <ScheduleItem
                 time="Late"
                 title="Party Games"
@@ -260,31 +268,105 @@ const Schedule = ({
           )}
           {selectedTab === 'sunday' && (
             <>
-              <ScheduleItem
-                time="Morning"
-                title="Open Gaming"
-                icon={<GiCardJoker size="2em" />}
-                iconColor="has-text-danger"
-              />
-              <ScheduleItem
-                time="12:00pm"
-                title="Take Mark, Erin, Jesse, and Mary Elizabeth back to the airport"
-                icon={<GiCommercialAirplane size="2em" />}
-              />
-              <ScheduleItem
-                time="Any time left"
-                title="Open Gaming"
-                icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
+              <ChooseGame
+                time="9:00am"
+                title="In the Footsteps of Darwin or Zoo Vadis"
+                icon={<GiTigerHead size="2em" />}
                 iconColor="has-text-link"
+                games={[
+                  {
+                    id: 'inthefootstepsofdarwin',
+                    image: {
+                      src: 'https://cf.geekdo-images.com/1KPQC8pVuTXL32RdbTxDjw__itemrep/img/qERM9Gdsk2NVgdiN1HhD9pC5vDg=/fit-in/246x300/filters:strip_icc()/pic7234392.jpg',
+                      width: 128,
+                      height: 128,
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/376683/in-the-footsteps-of-darwin',
+                  },
+                  {
+                    id: 'zoovadis',
+                    image: {
+                      src: 'https://cf.geekdo-images.com/Kl3NjtNKpuJNPjdBQtdsow__itemrep/img/mmVsnLtn3T4zkeNbjWpfrWZKS5c=/fit-in/246x300/filters:strip_icc()/pic6988937.jpg',
+                      width: 91,
+                      height: 128,
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/368061/zoo-vadis',
+                  },
+                ]}
+                gamesJoined={gamesJoined}
+                participants={participants}
+                updateData={updateData}
               />
+              <ScheduleItem
+                time="12:30pm"
+                title="Lunch"
+                icon={<GiMeal size="2em" />}
+              />
+              <ScheduleItem
+                time="2:00pm"
+                title="Challengers! Beach Cup"
+                icon={<GiFlyingFlag size="2em" />}
+                iconColor="has-text-danger"
+              >
+                <Link href="https://boardgamegeek.com/boardgame/390340/challengers-beach-cup">
+                  <Image
+                    src="https://cf.geekdo-images.com/QZWrLoOoruqb0YRDQT-jng__itemrep/img/OPYajJmfXFupH9xQmVlDW1eZ5qo=/fit-in/246x300/filters:strip_icc()/pic7683878.png"
+                    width={128}
+                    height={128}
+                    alt="challengers"
+                    style={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                    }}
+                  />
+                </Link>
+              </ScheduleItem>
               <ScheduleItem
                 time="???"
-                title="Pick up kids from Meemah and Meepah's house"
+                title="Somehow recieve kids bach from Meemah and Meepah's house"
                 icon={<GiFamilyHouse size="2em" />}
               >
                 Maybe they will drop them off? We haven&apos;t actually planned
-                this far. Are you still reading this?
+                this.
               </ScheduleItem>
+              <ScheduleItem
+                time="6:30pm"
+                title="Dinner"
+                icon={<GiMeal size="2em" />}
+              />
+              <ChooseGame
+                time="After dinner"
+                title="Freelancers or Faiyum"
+                icon={<GiKnightBanner size="2em" />}
+                iconColor="has-text-link"
+                games={[
+                  {
+                    id: 'freelancers',
+                    image: {
+                      src: 'https://cf.geekdo-images.com/DuZnEeI06_5UKpv4t28Kyg__itemrep/img/CYFNZ0Dxl0tCy_Il6-Jwcptrt3M=/fit-in/246x300/filters:strip_icc()/pic7429703.jpg',
+                      width: 128,
+                      height: 128,
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/383206/freelancers-a-crossroads-game',
+                  },
+                  {
+                    id: 'faiyum',
+                    image: {
+                      src: 'https://cf.geekdo-images.com/sl0ReaWGqY1LQjNoGtCPWg__itemrep/img/ejMNE7rT_oZjR8a5DHQ_4UBP6Qk=/fit-in/246x300/filters:strip_icc()/pic5638086.jpg',
+                      width: 94,
+                      height: 128,
+                    },
+                    bggLink:
+                      'https://boardgamegeek.com/boardgame/318983/faiyum',
+                  },
+                ]}
+                gamesJoined={gamesJoined}
+                participants={participants}
+                updateData={updateData}
+              />
             </>
           )}
         </div>

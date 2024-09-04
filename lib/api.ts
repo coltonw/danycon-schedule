@@ -8,31 +8,35 @@ import { Participants } from './types';
 import { isValidUsername } from './usernames';
 
 const gameChoices = [
-  'kazooka',
-  'paleo',
-  'mosaic',
-  'lostruinsofarnak',
-  'bigtop',
-  'turingmachine',
+  'letsgotojapan',
+  'worldwonders',
+  'harmonies',
+  'spectral',
+  'inthefootstepsofdarwin',
+  'zoovadis',
+  'freelancers',
+  'faiyum',
 ];
 
 const participantsToGamesJoined = (
   participants: Participants,
-  username: string
+  username: string,
 ): string[] => {
   return gameChoices.filter(
     (gameId) =>
-      participants[gameId] && participants[gameId].find((p) => p === username)
+      participants[gameId] && participants[gameId].find((p) => p === username),
   );
 };
 
 const initialParticipants: Participants = {
-  kazooka: [],
-  paleo: [],
-  mosaic: [],
-  lostruinsofarnak: [],
-  bigtop: [],
-  turingmachine: [],
+  letsgotojapan: [],
+  worldwonders: [],
+  harmonies: [],
+  spectral: [],
+  inthefootstepsofdarwin: [],
+  zoovadis: [],
+  freelancers: [],
+  faiyum: [],
 };
 
 const getParticipantsItem = async (): Promise<
@@ -64,7 +68,7 @@ const getParticipantsItem = async (): Promise<
 };
 
 const getParticipants = async (
-  itemParam?: Record<string, AttributeValue>
+  itemParam?: Record<string, AttributeValue>,
 ): Promise<Participants> => {
   if (process.env.NODE_ENV === 'production') {
     const item = itemParam || (await getParticipantsItem());
@@ -112,7 +116,7 @@ const putParticipants = async (version: string, participants: Participants) => {
 export async function participateAction(
   username: string,
   action: 'join' | 'leave',
-  game: string
+  game: string,
 ) {
   const participantsItem = await getParticipantsItem();
   const participants = await getParticipants(participantsItem);
@@ -125,13 +129,13 @@ export async function participateAction(
         participants[game].push(username);
         succuss = await putParticipants(
           participantsItem?.version?.N || '0',
-          participants
+          participants,
         );
       } else if (action === 'leave') {
         participants[game] = participants[game].filter((u) => u !== username);
         succuss = await putParticipants(
           participantsItem?.version?.N || '0',
-          participants
+          participants,
         );
       }
     } catch (e) {}
