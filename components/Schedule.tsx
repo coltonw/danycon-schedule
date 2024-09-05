@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import {
+  GiAirplane,
   GiBalloons,
   GiBriefcase,
   GiCardJoker,
@@ -16,6 +17,7 @@ import {
   GiFlyingFlag,
   GiHand,
   GiKnightBanner,
+  GiLaurels,
   GiLion,
   GiMayanPyramid,
   GiMeal,
@@ -86,17 +88,6 @@ const Schedule = ({
           {selectedTab === 'predanycon' && (
             <>
               <ScheduleItem
-                time="Wednesday, September 4th, sometime"
-                title="Mark possibly arrives"
-                icon={<GiCommercialAirplane size="2em" />}
-              />
-              <ScheduleItem
-                time="Thursday, September 5th, sometime"
-                title="Erin possibly arrives"
-                icon={<GiCommercialAirplane size="2em" />}
-                iconColor="has-text-danger"
-              ></ScheduleItem>
-              <ScheduleItem
                 time="Thursday, September 5th, 4:30pm"
                 title="Mandy and Bailey arrive"
                 icon={<GiCommercialAirplane size="2em" />}
@@ -109,6 +100,12 @@ const Schedule = ({
               >
                 Guests get to pick the game!
               </ScheduleItem>
+              <ScheduleItem
+                time="Thursday, September 5th, sometime"
+                title="Mark and Erin possibly arrive"
+                icon={<GiCommercialAirplane size="2em" />}
+                iconColor="has-text-danger"
+              ></ScheduleItem>
               <ScheduleItem
                 time="Thursday, September 5th, 10:50pm"
                 title="Jesse and Mary Elizabeth arrive"
@@ -178,8 +175,8 @@ const Schedule = ({
               />
               <ChooseGame
                 time="9:00am"
-                title="Let's Go to Japan or World Wonders"
-                icon={<GiMayanPyramid size="2em" />}
+                title="Let's Go to Japan or First in Flight"
+                icon={<GiAirplane size="2em" />}
                 iconColor="has-text-link"
                 games={[
                   {
@@ -193,14 +190,14 @@ const Schedule = ({
                       'https://boardgamegeek.com/boardgame/368173/lets-go-to-japan',
                   },
                   {
-                    id: 'worldwonders',
+                    id: 'firstinflight',
                     image: {
-                      src: 'https://cf.geekdo-images.com/GGi5aUL1dVQIrytxgXow4g__itemrep/img/cuDfJpNjCJQrNjJ4CL80U4u72B4=/fit-in/246x300/filters:strip_icc()/pic7604558.png',
-                      width: 128,
+                      src: 'https://cf.geekdo-images.com/NowJcoT3uCC9LJXjYaAXkw__itemrep/img/uJPUHWUAacyfuEAAYnm_ThmdZCQ=/fit-in/246x300/filters:strip_icc()/pic7518155.png',
+                      width: 98,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/365258/world-wonders',
+                      'https://boardgamegeek.com/boardgame/361788/first-in-flight',
                   },
                 ]}
                 gamesJoined={gamesJoined}
@@ -214,19 +211,19 @@ const Schedule = ({
               />
               <ChooseGame
                 time="2:00pm"
-                title="Harmonies or Spectral"
-                icon={<GiLion size="2em" />}
-                iconColor="has-text-warning"
+                title="Caesar's Empire or Spectral"
+                icon={<GiLaurels size="2em" />}
+                iconColor="has-text-success"
                 games={[
                   {
-                    id: 'harmonies',
+                    id: 'caesarsempire',
                     image: {
-                      src: 'https://cf.geekdo-images.com/A_XP2_VN3ugyqPhezowB_w__itemrep/img/wGng6fVAYRI5NKBX6x-pksZKJGI=/fit-in/246x300/filters:strip_icc()/pic8026369.png',
+                      src: 'https://cf.geekdo-images.com/K55c5g1QUyh5vhtQbI0hxQ__itemrep/img/9wq8izQ6193wR_qaKdbFrnz1yqE=/fit-in/246x300/filters:strip_icc()/pic6253596.jpg',
                       width: 128,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/414317/harmonies',
+                      'https://boardgamegeek.com/boardgame/341496/caesars-empire',
                   },
                   {
                     id: 'spectral',
@@ -282,19 +279,19 @@ const Schedule = ({
               />
               <ChooseGame
                 time="9:00am"
-                title="In the Footsteps of Darwin or Zoo Vadis"
+                title="Forbidden Jungle or Zoo Vadis"
                 icon={<GiTigerHead size="2em" />}
                 iconColor="has-text-warning"
                 games={[
                   {
-                    id: 'inthefootstepsofdarwin',
+                    id: 'forbiddenjungle',
                     image: {
-                      src: 'https://cf.geekdo-images.com/1KPQC8pVuTXL32RdbTxDjw__itemrep/img/qERM9Gdsk2NVgdiN1HhD9pC5vDg=/fit-in/246x300/filters:strip_icc()/pic7234392.jpg',
+                      src: 'https://cf.geekdo-images.com/mF_cPPO9WU4DaYGJCzEw4g__itemrep/img/vuCxbttZuHbLnIqvPg1X6c2AjRE=/fit-in/246x300/filters:strip_icc()/pic7594347.jpg',
                       width: 128,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/376683/in-the-footsteps-of-darwin',
+                      'https://boardgamegeek.com/boardgame/380226/forbidden-jungle',
                   },
                   {
                     id: 'zoovadis',
@@ -337,7 +334,7 @@ const Schedule = ({
               </ScheduleItem>
               <ScheduleItem
                 time="???"
-                title="Somehow recieve kids bach from Meemah and Meepah's house"
+                title="Somehow recieve kids back from Meemah and Meepah's house"
                 icon={<GiFamilyHouse size="2em" />}
                 iconColor="has-text-primary"
               >

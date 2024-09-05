@@ -16,6 +16,9 @@ const gameChoices = [
   'zoovadis',
   'freelancers',
   'faiyum',
+  'firstinflight',
+  'caesarsempire',
+  'forbiddenjungle',
 ];
 
 const participantsToGamesJoined = (
@@ -37,6 +40,9 @@ const initialParticipants: Participants = {
   zoovadis: [],
   freelancers: [],
   faiyum: [],
+  firstinflight: [],
+  caesarsempire: [],
+  forbiddenjungle: [],
 };
 
 const getParticipantsItem = async (): Promise<
