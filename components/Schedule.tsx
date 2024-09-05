@@ -88,18 +88,11 @@ const Schedule = ({
           {selectedTab === 'predanycon' && (
             <>
               <ScheduleItem
-                time="Thursday, September 5th, 4:30pm"
+                time="Thursday, September 5th, 8:00pm"
                 title="Mandy and Bailey arrive"
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-warning"
               ></ScheduleItem>
-              <ScheduleItem
-                time="Thursday, September 5th, evening"
-                title="Games with folks who are here"
-                icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
-              >
-                Guests get to pick the game!
-              </ScheduleItem>
               <ScheduleItem
                 time="Thursday, September 5th, sometime"
                 title="Mark and Erin possibly arrive"
@@ -118,10 +111,31 @@ const Schedule = ({
             <>
               <ScheduleItem
                 time="Morning"
-                title="Party favors"
+                title="Party favors and daily word games"
                 icon={<GiPresent size="2em" />}
                 iconColor="has-text-link"
-              />
+              >
+                Mark and Erin have made NYT style word games for each Danycon
+                day. Here are the games for Friday:
+                <br />
+                <ul>
+                  <li>
+                    <Link href="https://mywordle.strivemath.com/?word=ycijt">
+                      Wordle
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="https://connections.swellgarfo.com/game/-O61yZa3DrIV7go9GH3b">
+                      Connections
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="https://customstrandsnyt.com/play/HeyGoodLookin-/">
+                      Strands
+                    </Link>
+                  </li>
+                </ul>
+              </ScheduleItem>
               <ScheduleItem
                 time="Daytime"
                 title='"Work" and painting'
@@ -169,10 +183,30 @@ const Schedule = ({
             <>
               <ScheduleItem
                 time="Early morning"
-                title="Open gaming"
+                title="Daily word games and open gaming"
                 icon={<GiCoffeeCup size="2em" />}
                 iconColor="has-text-gray"
-              />
+              >
+                Saturday word games:
+                <br />
+                <ul>
+                  <li>
+                    <Link href="https://mywordle.strivemath.com/?word=codhc">
+                      Wordle
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="https://connections.swellgarfo.com/game/-O61vAd5alJcNvYWfZW3">
+                      Connections
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="https://customstrandsnyt.com/play/GoodKnight/">
+                      Strands
+                    </Link>
+                  </li>
+                </ul>
+              </ScheduleItem>
               <ChooseGame
                 time="9:00am"
                 title="Let's Go to Japan or First in Flight"
@@ -273,10 +307,30 @@ const Schedule = ({
             <>
               <ScheduleItem
                 time="Early morning"
-                title="Open gaming"
+                title="Daily word games and open gaming"
                 icon={<GiCoffeeCup size="2em" />}
                 iconColor="has-text-gray"
-              />
+              >
+                Sunday word games:
+                <br />
+                <ul>
+                  <li>
+                    <Link href="https://mywordle.strivemath.com/?word=dcsej">
+                      Wordle
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="https://connections.swellgarfo.com/game/-O624zGPraBFBXfmrjoy">
+                      Connections
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="https://customstrandsnyt.com/play/YourTurn!/">
+                      Strands
+                    </Link>
+                  </li>
+                </ul>
+              </ScheduleItem>
               <ChooseGame
                 time="9:00am"
                 title="Forbidden Jungle or Zoo Vadis"
