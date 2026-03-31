@@ -2,13 +2,25 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      's3-us-west-1.amazonaws.com',
-      'd1lu8vbgap5ai0.cloudfront.net',
-      'c.tenor.com',
-      'cf.geekdo-images.com',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 's3-us-west-1.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'd1lu8vbgap5ai0.cloudfront.net',
+      },
+      {
+        protocol: 'https',
+        hostname: 'c.tenor.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cf.geekdo-images.com',
+      },
     ],
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
