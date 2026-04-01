@@ -3,9 +3,9 @@ import Hero from '../../../components/Hero';
 import Schedule from '../../../components/Schedule';
 
 interface SchedulePageProps {
-  params: {
+  params: Promise<{
     username: string;
-  };
+  }>;
 }
 
 async function getParticipantData(username?: string) {
@@ -13,8 +13,9 @@ async function getParticipantData(username?: string) {
 }
 
 const SchedulePage = async ({ params }: SchedulePageProps) => {
+  const { username } = await params;
   const { gamesJoined, participants } = await getParticipantData(
-    decodeURIComponent(params.username)
+    decodeURIComponent(username)
   );
 
   return (
