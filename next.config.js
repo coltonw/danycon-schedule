@@ -21,6 +21,9 @@ const nextConfig = {
       },
     ],
   },
+  sassOptions: {
+    quietDeps: true,
+  },
 };
 
 export default nextConfig;
