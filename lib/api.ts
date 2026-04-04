@@ -8,17 +8,14 @@ import { Participants } from './types';
 import { isValidUsername } from './usernames';
 
 const gameChoices = [
-  'letsgotojapan',
-  'worldwonders',
-  'harmonies',
-  'spectral',
-  'inthefootstepsofdarwin',
-  'zoovadis',
-  'freelancers',
-  'faiyum',
-  'firstinflight',
-  'caesarsempire',
-  'forbiddenjungle',
+  'trinkettrove',
+  'comboup',
+  'guildlands',
+  'orbit',
+  'etherfields',
+  'cyclades',
+  'luthier',
+  'puertorico',
 ];
 
 const participantsToGamesJoined = (
@@ -32,17 +29,14 @@ const participantsToGamesJoined = (
 };
 
 const initialParticipants: Participants = {
-  letsgotojapan: [],
-  worldwonders: [],
-  harmonies: [],
-  spectral: [],
-  inthefootstepsofdarwin: [],
-  zoovadis: [],
-  freelancers: [],
-  faiyum: [],
-  firstinflight: [],
-  caesarsempire: [],
-  forbiddenjungle: [],
+  trinkettrove: [],
+  comboup: [],
+  guildlands: [],
+  orbit: [],
+  etherfields: [],
+  cyclades: [],
+  luthier: [],
+  puertorico: [],
 };
 
 const getParticipantsItem = async (): Promise<

@@ -1,31 +1,22 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import {
-  GiAirplane,
   GiBalloons,
   GiBriefcase,
   GiCardJoker,
   GiChalkOutlineMurder,
   GiCoffeeCup,
   GiCommercialAirplane,
-  GiDoubleDragon,
   GiFamilyHouse,
-  GiFlyingFlag,
-  GiHand,
-  GiKnightBanner,
-  GiLaurels,
-  GiLion,
-  GiMayanPyramid,
+  GiGhost,
   GiMeal,
-  GiMountedKnight,
   GiPartyFlags,
   GiPerspectiveDiceSixFacesRandom,
   GiPresent,
-  GiTigerHead,
+  GiSpookyHouse,
 } from 'react-icons/gi';
 import { ScheduleData } from '../lib/types';
 import ChooseGame from './ChooseGame';
@@ -41,12 +32,12 @@ const Schedule = ({
   const [gamesJoined, setGamesJoined] = useState(initialGamesJoined);
   let defaultTab = 'predanycon';
   const time = new Date().getTime();
-  // We use 3am (7am utc) to mark the start of the next danycon day
-  if (time > new Date('2024-09-08T07:00:00.000Z').getTime()) {
+  // We use 3am EDT (7am UTC) to mark the start of the next danycon day
+  if (time > new Date('2026-04-12T07:00:00.000Z').getTime()) {
     defaultTab = 'sunday';
-  } else if (time > new Date('2024-09-07T07:00:00.000Z').getTime()) {
+  } else if (time > new Date('2026-04-11T07:00:00.000Z').getTime()) {
     defaultTab = 'saturday';
-  } else if (time > new Date('2024-09-06T07:00:00.000Z').getTime()) {
+  } else if (time > new Date('2026-04-10T07:00:00.000Z').getTime()) {
     defaultTab = 'friday';
   }
   const selectedTab =
@@ -68,18 +59,18 @@ const Schedule = ({
           <li className={`${selectedTab === 'predanycon' ? 'is-active' : ''}`}>
             <ScheduleTab
               id="predanycon"
-              title="Pre-Danycon"
-              date="September 4-5"
+              title="Arrivals"
+              date="April 10"
             />
           </li>
           <li className={`${selectedTab === 'friday' ? 'is-active' : ''}`}>
-            <ScheduleTab id="friday" title="Friday" date="September 6" />
+            <ScheduleTab id="friday" title="Friday" date="April 10" />
           </li>
           <li className={`${selectedTab === 'saturday' ? 'is-active' : ''}`}>
-            <ScheduleTab id="saturday" title="Saturday" date="September 7" />
+            <ScheduleTab id="saturday" title="Saturday" date="April 11" />
           </li>
           <li className={`${selectedTab === 'sunday' ? 'is-active' : ''}`}>
-            <ScheduleTab id="sunday" title="Sunday" date="September 8" />
+            <ScheduleTab id="sunday" title="Sunday" date="April 12" />
           </li>
         </ul>
       </div>
@@ -88,150 +79,127 @@ const Schedule = ({
           {selectedTab === 'predanycon' && (
             <>
               <ScheduleItem
-                time="Thursday, September 5th, 8:00pm"
-                title="Mandy and Bailey arrive"
-                icon={<GiCommercialAirplane size="2em" />}
-                iconColor="has-text-warning"
-              ></ScheduleItem>
-              <ScheduleItem
-                time="Thursday, September 5th, sometime"
-                title="Mark and Erin possibly arrive"
-                icon={<GiCommercialAirplane size="2em" />}
-                iconColor="has-text-danger"
-              ></ScheduleItem>
-              <ScheduleItem
-                time="Thursday, September 5th, 10:50pm"
+                time="Friday, April 10th, 3:10pm"
                 title="Jesse and Mary Elizabeth arrive"
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-success"
-              ></ScheduleItem>
+              >
+                Boston Logan Airport — Flight 541. Leaves Monday April 13th,
+                Flight 872 at 3:50pm.
+              </ScheduleItem>
+              <ScheduleItem
+                time="Friday, April 10th, 3:40pm"
+                title="Mandy and Bailey arrive"
+                icon={<GiCommercialAirplane size="2em" />}
+                iconColor="has-text-warning"
+              >
+                Boston Logan Airport. Leaves Monday at 5pm. We can probably
+                pick up all four at once — airport is about 1 hour away!
+              </ScheduleItem>
+              <ScheduleItem
+                time="Friday, April 10th, TBD"
+                title="Mark arrives"
+                icon={<GiCommercialAirplane size="2em" />}
+                iconColor="has-text-link"
+              >
+                Trying to arrive Friday around the same time as everyone else.
+                Details TBD.
+              </ScheduleItem>
+              <ScheduleItem
+                time="Saturday, April 11th, night"
+                title="Erin arrives"
+                icon={<GiCommercialAirplane size="2em" />}
+                iconColor="has-text-danger"
+              >
+                Flying standby — exact flight details unknown until last minute.
+                Time TBD.
+              </ScheduleItem>
             </>
           )}
           {selectedTab === 'friday' && (
             <>
               <ScheduleItem
-                time="Morning"
-                title="Party favors and daily word games"
+                time="Afternoon"
+                title="Party favors and welcome!"
                 icon={<GiPresent size="2em" />}
                 iconColor="has-text-link"
               >
-                Mark and Erin have made NYT style word games for each Danycon
-                day. Here are the games for Friday:
-                <br />
-                <ul>
-                  <li>
-                    <Link href="https://mywordle.strivemath.com/?word=ycijt">
-                      Wordle
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="https://connections.swellgarfo.com/game/-O61yZa3DrIV7go9GH3b">
-                      Connections
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="https://customstrandsnyt.com/play/HeyGoodLookin-/">
-                      Strands
-                    </Link>
-                  </li>
-                </ul>
+                Everyone arrives from Boston Logan. 1 hour drive from the
+                airport — see the Arrivals tab for flight details.
               </ScheduleItem>
               <ScheduleItem
-                time="Daytime"
-                title='"Work" and painting'
-                icon={<GiBriefcase size="2em" />}
+                time="Evening"
+                title="Open gaming"
+                icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
                 iconColor="has-text-warning"
-              ></ScheduleItem>
-              <ScheduleItem
-                time="Early evening"
-                title="Ann and Ed visit"
-                icon={<GiHand size="2em" />}
-                iconColor="has-text-danger"
               >
-                Ann and Ed will be dropping by to say hi to everyone and pick up
-                Julius and Patricia.
+                Break out the paranormal themed games while everyone settles in!
+                Suggestions: Mysterium, Cryptid, Mansions of Madness, Gloom,
+                Spectral, Destinies, Vagrantsong
               </ScheduleItem>
               <ScheduleItem
                 time="Late evening"
-                title="Dinner and Murder"
-                icon={<GiChalkOutlineMurder size="2em" />}
+                title="Alice is Missing (possibly)"
+                icon={<GiGhost size="2em" />}
+                iconColor="has-text-danger"
               >
-                How to Host a Murder: Maiming of the Shrew
+                Indie RPG — we&apos;ll split into two groups. Erin can join
+                remotely if we do it tonight! Could also move this to Sunday
+                night.
               </ScheduleItem>
               <ScheduleItem
                 time="Late"
                 title="Party Games"
                 icon={<GiPartyFlags size="2em" />}
                 iconColor="has-text-danger"
-              >
-                <Link href="https://boardgamegeek.com/boardgame/408547/things-in-rings">
-                  <Image
-                    src="https://cf.geekdo-images.com/oNmUB9qyfDYwUlzwrl9hZQ__itemrep/img/OPpXy1LxRR8S1hdjf1jd9KavXX8=/fit-in/246x300/filters:strip_icc()/pic8037086.jpg"
-                    width={128}
-                    height={128}
-                    alt="thingsinrings"
-                    style={{
-                      maxWidth: '100%',
-                      height: 'auto',
-                    }}
-                  />
-                </Link>
-              </ScheduleItem>
+              />
             </>
           )}
           {selectedTab === 'saturday' && (
             <>
               <ScheduleItem
-                time="Early morning"
-                title="Daily word games and open gaming"
+                time="9:00am – 11:00am"
+                title="Julius's Pancake Breakfast"
                 icon={<GiCoffeeCup size="2em" />}
+                iconColor="has-text-warning"
+              >
+                Everyone heads to Julius&apos;s for pancakes. This block is
+                reserved — no gaming scheduled during breakfast!
+              </ScheduleItem>
+              <ScheduleItem
+                time="After breakfast"
+                title="Daily word games and open gaming"
+                icon={<GiBriefcase size="2em" />}
                 iconColor="has-text-gray"
               >
-                Saturday word games:
-                <br />
-                <ul>
-                  <li>
-                    <Link href="https://mywordle.strivemath.com/?word=codhc">
-                      Wordle
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="https://connections.swellgarfo.com/game/-O61vAd5alJcNvYWfZW3">
-                      Connections
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="https://customstrandsnyt.com/play/GoodKnight/">
-                      Strands
-                    </Link>
-                  </li>
-                </ul>
+                Paranormal themed open gaming suggestions: Mysterium, Cryptid,
+                Mansions of Madness, Gloom, Spectral, Destinies, Vagrantsong
               </ScheduleItem>
               <ChooseGame
-                time="9:00am"
-                title="Let's Go to Japan or First in Flight"
-                icon={<GiAirplane size="2em" />}
+                time="11:30am (30 min)"
+                title="Trinket Trove or Combo Up"
+                icon={<GiCardJoker size="2em" />}
                 iconColor="has-text-link"
                 games={[
                   {
-                    id: 'letsgotojapan',
+                    id: 'trinkettrove',
                     image: {
-                      src: 'https://cf.geekdo-images.com/OvhEUaF43CIjSFz8aF_yzQ__itemrep/img/oeWGeR5i9GMih_zL10x97Ctjh8E=/fit-in/246x300/filters:strip_icc()/pic6996891.jpg',
-                      width: 128,
+                      src: 'https://cf.geekdo-images.com/OaULQMLUHwDrDszJsHK8pA__itemrep/img/fDLcmrXDILphaYqEOu1SNxEDuVE=/fit-in/246x300/filters:strip_icc()/pic8985794.jpg',
+                      width: 100,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/368173/lets-go-to-japan',
+                      'https://boardgamegeek.com/boardgame/436931/trinket-trove',
                   },
                   {
-                    id: 'firstinflight',
+                    id: 'comboup',
                     image: {
-                      src: 'https://cf.geekdo-images.com/NowJcoT3uCC9LJXjYaAXkw__itemrep/img/uJPUHWUAacyfuEAAYnm_ThmdZCQ=/fit-in/246x300/filters:strip_icc()/pic7518155.png',
-                      width: 98,
+                      src: 'https://cf.geekdo-images.com/Yna9fOZ8ZQeQdThHuLa76Q__itemrep/img/Kft_ojxV8NPhbOpr8jdNG8MJRDA=/fit-in/246x300/filters:strip_icc()/pic8349602.png',
+                      width: 100,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/361788/first-in-flight',
+                      'https://boardgamegeek.com/boardgame/438452/combo-up',
                   },
                 ]}
                 gamesJoined={gamesJoined}
@@ -244,30 +212,30 @@ const Schedule = ({
                 icon={<GiMeal size="2em" />}
               />
               <ChooseGame
-                time="2:00pm"
-                title="Caesar's Empire or Spectral"
-                icon={<GiLaurels size="2em" />}
+                time="2:00pm (60 min)"
+                title="Guildlands or Orbit"
+                icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
                 iconColor="has-text-success"
                 games={[
                   {
-                    id: 'caesarsempire',
+                    id: 'guildlands',
                     image: {
-                      src: 'https://cf.geekdo-images.com/K55c5g1QUyh5vhtQbI0hxQ__itemrep/img/9wq8izQ6193wR_qaKdbFrnz1yqE=/fit-in/246x300/filters:strip_icc()/pic6253596.jpg',
-                      width: 128,
+                      src: 'https://cf.geekdo-images.com/CSJCc5ujq4PktChkmLIcPg__itemrep/img/LmIFUCFKiBz32unaKz1ui1F3kQ4=/fit-in/246x300/filters:strip_icc()/pic8955025.jpg',
+                      width: 100,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/341496/caesars-empire',
+                      'https://boardgamegeek.com/boardgame/447587/guildlands',
                   },
                   {
-                    id: 'spectral',
+                    id: 'orbit',
                     image: {
-                      src: 'https://cf.geekdo-images.com/m1r9KXSdtK8UDU54InCCYg__itemrep/img/GwQfcTRZDnafYTMKl8EP_66sIIU=/fit-in/246x300/filters:strip_icc()/pic7515218.png',
-                      width: 102,
+                      src: 'https://cf.geekdo-images.com/0x7TCH7bCynSQqW3GVc8UA__itemrep/img/3FehhBN80nEO3VL5bm6gYqRPTPY=/fit-in/246x300/filters:strip_icc()/pic8478397.png',
+                      width: 100,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/388476/spectral',
+                      'https://boardgamegeek.com/boardgame/429767/orbit',
                   },
                 ]}
                 gamesJoined={gamesJoined}
@@ -276,13 +244,12 @@ const Schedule = ({
               />
               <ScheduleItem
                 time="3:30pm"
-                title="Medieval Gaming"
-                icon={<GiMountedKnight size="2em" />}
-                iconColor="has-text-gray"
+                title="Open gaming"
+                icon={<GiGhost size="2em" />}
+                iconColor="has-text-warning"
               >
-                <Link href="/medieval">
-                  Check out the list of medieval games here
-                </Link>
+                Paranormal themed open gaming suggestions: Mysterium, Cryptid,
+                Mansions of Madness, Gloom, Spectral, Destinies, Vagrantsong
               </ScheduleItem>
               <ScheduleItem
                 time="6:30pm"
@@ -291,16 +258,17 @@ const Schedule = ({
               />
               <ScheduleItem
                 time="After dinner"
-                title="Dungeons, but also Dragons"
-                icon={<GiDoubleDragon size="2em" />}
-                iconColor="has-text-success"
-              ></ScheduleItem>
+                title="Murder Mystery Dinner"
+                icon={<GiChalkOutlineMurder size="2em" />}
+              />
               <ScheduleItem
                 time="Late"
                 title="Party Games"
-                icon={<GiCardJoker size="2em" />}
+                icon={<GiBalloons size="2em" />}
                 iconColor="has-text-danger"
-              />
+              >
+                Erin also arrives sometime tonight (flying standby — TBD)!
+              </ScheduleItem>
             </>
           )}
           {selectedTab === 'sunday' && (
@@ -311,51 +279,34 @@ const Schedule = ({
                 icon={<GiCoffeeCup size="2em" />}
                 iconColor="has-text-gray"
               >
-                Sunday word games:
-                <br />
-                <ul>
-                  <li>
-                    <Link href="https://mywordle.strivemath.com/?word=dcsej">
-                      Wordle
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="https://connections.swellgarfo.com/game/-O624zGPraBFBXfmrjoy">
-                      Connections
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="https://customstrandsnyt.com/play/YourTurn!/">
-                      Strands
-                    </Link>
-                  </li>
-                </ul>
+                Paranormal themed open gaming suggestions: Mysterium, Cryptid,
+                Mansions of Madness, Gloom, Spectral, Destinies, Vagrantsong
               </ScheduleItem>
               <ChooseGame
-                time="9:00am"
-                title="Forbidden Jungle or Zoo Vadis"
-                icon={<GiTigerHead size="2em" />}
+                time="10:00am (90 min)"
+                title="Etherfields or Cyclades"
+                icon={<GiSpookyHouse size="2em" />}
                 iconColor="has-text-warning"
                 games={[
                   {
-                    id: 'forbiddenjungle',
+                    id: 'etherfields',
                     image: {
-                      src: 'https://cf.geekdo-images.com/mF_cPPO9WU4DaYGJCzEw4g__itemrep/img/vuCxbttZuHbLnIqvPg1X6c2AjRE=/fit-in/246x300/filters:strip_icc()/pic7594347.jpg',
-                      width: 128,
+                      src: 'https://cf.geekdo-images.com/K1yVmbbWCsQuiWk-7x-V-Q__itemrep/img/sn5fNJYWUBD1DJ9pDpqxjkF6kcI=/fit-in/246x300/filters:strip_icc()/pic7455627.png',
+                      width: 100,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/380226/forbidden-jungle',
+                      'https://boardgamegeek.com/boardgame/280794/etherfields',
                   },
                   {
-                    id: 'zoovadis',
+                    id: 'cyclades',
                     image: {
-                      src: 'https://cf.geekdo-images.com/Kl3NjtNKpuJNPjdBQtdsow__itemrep/img/mmVsnLtn3T4zkeNbjWpfrWZKS5c=/fit-in/246x300/filters:strip_icc()/pic6988937.jpg',
-                      width: 91,
+                      src: 'https://cf.geekdo-images.com/6QbaJOS8acWkJ6gSYI0KaQ__itemrep/img/Yd9YB69mzV4X4e3zD6oX2H_ohik=/fit-in/246x300/filters:strip_icc()/pic584779.jpg',
+                      width: 100,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/368061/zoo-vadis',
+                      'https://boardgamegeek.com/boardgame/54998/cyclades',
                   },
                 ]}
                 gamesJoined={gamesJoined}
@@ -367,64 +318,31 @@ const Schedule = ({
                 title="Lunch"
                 icon={<GiMeal size="2em" />}
               />
-              <ScheduleItem
-                time="2:00pm"
-                title="Challengers! Beach Cup"
-                icon={<GiFlyingFlag size="2em" />}
-                iconColor="has-text-danger"
-              >
-                <Link href="https://boardgamegeek.com/boardgame/390340/challengers-beach-cup">
-                  <Image
-                    src="https://cf.geekdo-images.com/QZWrLoOoruqb0YRDQT-jng__itemrep/img/OPYajJmfXFupH9xQmVlDW1eZ5qo=/fit-in/246x300/filters:strip_icc()/pic7683878.png"
-                    width={128}
-                    height={128}
-                    alt="challengers"
-                    style={{
-                      maxWidth: '100%',
-                      height: 'auto',
-                    }}
-                  />
-                </Link>
-              </ScheduleItem>
-              <ScheduleItem
-                time="???"
-                title="Somehow recieve kids back from Meemah and Meepah's house"
-                icon={<GiFamilyHouse size="2em" />}
-                iconColor="has-text-primary"
-              >
-                Maybe they will drop them off? We haven&apos;t actually planned
-                this.
-              </ScheduleItem>
-              <ScheduleItem
-                time="6:30pm"
-                title="Dinner"
-                icon={<GiMeal size="2em" />}
-              />
               <ChooseGame
-                time="After dinner"
-                title="Freelancers or Faiyum"
-                icon={<GiKnightBanner size="2em" />}
+                time="2:00pm (120 min)"
+                title="Luthier or Puerto Rico Special Edition"
+                icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
                 iconColor="has-text-link"
                 games={[
                   {
-                    id: 'freelancers',
+                    id: 'luthier',
                     image: {
-                      src: 'https://cf.geekdo-images.com/DuZnEeI06_5UKpv4t28Kyg__itemrep/img/CYFNZ0Dxl0tCy_Il6-Jwcptrt3M=/fit-in/246x300/filters:strip_icc()/pic7429703.jpg',
-                      width: 128,
+                      src: 'https://cf.geekdo-images.com/NNOCMpxKchQb_ByLmvDfRQ__itemrep/img/rFyVKpt-JhbahxmqTXGBa8heovg=/fit-in/246x300/filters:strip_icc()/pic8145392.png',
+                      width: 100,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/383206/freelancers-a-crossroads-game',
+                      'https://boardgamegeek.com/boardgame/371330/luthier',
                   },
                   {
-                    id: 'faiyum',
+                    id: 'puertorico',
                     image: {
-                      src: 'https://cf.geekdo-images.com/sl0ReaWGqY1LQjNoGtCPWg__itemrep/img/ejMNE7rT_oZjR8a5DHQ_4UBP6Qk=/fit-in/246x300/filters:strip_icc()/pic5638086.jpg',
-                      width: 94,
+                      src: 'https://cf.geekdo-images.com/ewNPD8vcrsXVfuVc9_E6hg__itemrep/img/tGk7IUtPVvPuoHu1xHd16SgKxsg=/fit-in/246x300/filters:strip_icc()/pic8376834.jpg',
+                      width: 100,
                       height: 128,
                     },
                     bggLink:
-                      'https://boardgamegeek.com/boardgame/318983/faiyum',
+                      'https://boardgamegeek.com/boardgame/415843/puerto-rico-1897-special-edition',
                   },
                 ]}
                 gamesJoined={gamesJoined}
@@ -432,11 +350,28 @@ const Schedule = ({
                 updateData={updateData}
               />
               <ScheduleItem
+                time="Evening"
+                title="Kids come home"
+                icon={<GiFamilyHouse size="2em" />}
+                iconColor="has-text-primary"
+              />
+              <ScheduleItem
+                time="After kids' bedtime"
+                title="Alice is Missing (if not done Friday)"
+                icon={<GiGhost size="2em" />}
+                iconColor="has-text-danger"
+              >
+                Indie RPG — split into two groups. People leave Monday so we
+                can go as late as we want!
+              </ScheduleItem>
+              <ScheduleItem
                 time="Late"
                 title="Party Games"
-                icon={<GiBalloons size="2em" />}
+                icon={<GiPartyFlags size="2em" />}
                 iconColor="has-text-danger"
-              />
+              >
+                Last night — people leave Monday, so no curfew!
+              </ScheduleItem>
             </>
           )}
         </div>
