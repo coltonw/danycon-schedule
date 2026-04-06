@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { GiCardJoker } from 'react-icons/gi';
-import { FiUser } from 'react-icons/fi';
-import styles from '../styles/Nav.module.scss';
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { GiCardJoker } from "react-icons/gi";
+import { FiUser } from "react-icons/fi";
+import styles from "../styles/Nav.module.scss";
 
 const Nav = () => {
   const pathname = usePathname();
   const [isActive, setIsActive] = useState(false);
   return (
-    <nav className={`navbar ${styles['nav-container']}`}>
+    <nav className={`navbar ${styles["nav-container"]}`}>
       <div className="container">
         <div className="navbar-brand">
           <Link href="/" className="navbar-item">
@@ -23,7 +23,7 @@ const Nav = () => {
             </span>
           </Link>
           <div
-            className={`navbar-burger burger ${isActive ? 'is-active' : ''}`}
+            className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
             onClick={() => setIsActive(!isActive)}
           >
             <span></span>
@@ -31,9 +31,9 @@ const Nav = () => {
             <span></span>
           </div>
         </div>
-        <div className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
+        <div className={`navbar-menu ${isActive ? "is-active" : ""}`}>
           <div className="navbar-end">
-            {pathname !== '/login' && (
+            {pathname !== "/login" && (
               <>
                 <Link href="/schedule" className="navbar-item">
                   Schedule

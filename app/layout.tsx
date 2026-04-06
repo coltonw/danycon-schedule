@@ -1,6 +1,6 @@
-import { Metadata } from 'next';
-import Nav from '../components/Nav';
-import '../styles/globals.scss';
+import { Metadata } from "next";
+import Nav from "../components/Nav";
+import "../styles/globals.scss";
 
 interface RootLayoutProps {
   children?: React.ReactNode;
@@ -20,6 +20,6 @@ function RootLayout({ children }: RootLayoutProps) {
 export default RootLayout;
 
 export const metadata: Metadata = {
-  title: 'Danycon',
-  icons: { icon: '/favicon.ico' },
+  title: "Danycon",
+  icons: { icon: "/favicon.ico" },
 };

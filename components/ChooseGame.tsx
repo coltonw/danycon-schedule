@@ -1,8 +1,8 @@
-import { ReactNode, useState } from 'react';
-import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { GameProps, Participants, ScheduleData } from '../lib/types';
-import { isGameJoined } from '../lib/utils';
-import ChooseGameOption from './ChooseGameOption';
+import { ReactNode, useState } from "react";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { GameProps, Participants, ScheduleData } from "../lib/types";
+import { isGameJoined } from "../lib/utils";
+import ChooseGameOption from "./ChooseGameOption";
 
 interface ChooseGameProps {
   time: string;
@@ -28,7 +28,7 @@ const ChooseGame = ({
   const [open, setOpen] = useState(false);
 
   const joinedGamesExist = !!games.find((game) =>
-    isGameJoined(game, gamesJoined)
+    isGameJoined(game, gamesJoined),
   );
 
   return (
@@ -39,7 +39,7 @@ const ChooseGame = ({
             className="is-flex is-align-items-center is-clickable"
             onClick={() => setOpen(!open)}
           >
-            <div className={`icon is-large ${iconColor || ''}`}>{icon}</div>
+            <div className={`icon is-large ${iconColor || ""}`}>{icon}</div>
             <div>
               <div className="is-size-7">{time}</div>
               <div>{title}</div>

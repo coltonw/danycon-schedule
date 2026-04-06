@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { FiUser } from 'react-icons/fi';
-import { GameProps, Participants, ScheduleData } from '../lib/types';
-import { isGameJoined, useUsername } from '../lib/utils';
+import Link from "next/link";
+import Image from "next/image";
+import { FiUser } from "react-icons/fi";
+import { GameProps, Participants, ScheduleData } from "../lib/types";
+import { isGameJoined, useUsername } from "../lib/utils";
 
 interface ChooseGameOptionProps {
   game: GameProps;
@@ -36,8 +36,8 @@ const ChooseGameOption = ({
               height={height}
               alt={id}
               style={{
-                maxWidth: '100%',
-                height: 'auto',
+                maxWidth: "100%",
+                height: "auto",
               }}
             />
           </Link>
@@ -54,14 +54,14 @@ const ChooseGameOption = ({
             ))}
             <div className="panel-block">
               <button
-                className={`button is-link is-fullwidth ${joinedGamesExist && !joined ? '' : 'is-outlined'}`}
+                className={`button is-link is-fullwidth ${joinedGamesExist && !joined ? "" : "is-outlined"}`}
                 onClick={async () => {
                   if (joined) {
                     const resp = await fetch(`/api/games`, {
-                      method: 'POST',
+                      method: "POST",
                       body: JSON.stringify({
                         username,
-                        action: 'leave',
+                        action: "leave",
                         game: id,
                       }),
                     });
@@ -71,10 +71,10 @@ const ChooseGameOption = ({
                     }
                   } else if (!joinedGamesExist) {
                     const resp = await fetch(`/api/games`, {
-                      method: 'POST',
+                      method: "POST",
                       body: JSON.stringify({
                         username,
-                        action: 'join',
+                        action: "join",
                         game: id,
                       }),
                     });
@@ -86,7 +86,7 @@ const ChooseGameOption = ({
                 }}
                 disabled={joinedGamesExist && !joined}
               >
-                {joined ? 'Leave' : 'Join'}
+                {joined ? "Leave" : "Join"}
               </button>
             </div>
           </article>

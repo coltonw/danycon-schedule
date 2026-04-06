@@ -4,20 +4,20 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 's3-us-west-1.amazonaws.com',
+        protocol: "https",
+        hostname: "s3-us-west-1.amazonaws.com",
       },
       {
-        protocol: 'https',
-        hostname: 'd1lu8vbgap5ai0.cloudfront.net',
+        protocol: "https",
+        hostname: "d1lu8vbgap5ai0.cloudfront.net",
       },
       {
-        protocol: 'https',
-        hostname: 'c.tenor.com',
+        protocol: "https",
+        hostname: "c.tenor.com",
       },
       {
-        protocol: 'https',
-        hostname: 'cf.geekdo-images.com',
+        protocol: "https",
+        hostname: "cf.geekdo-images.com",
       },
     ],
   },

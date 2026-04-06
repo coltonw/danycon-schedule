@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 interface HeroProps {
   title: string;
@@ -9,7 +9,7 @@ interface HeroProps {
 
 const Hero = ({ title, subtitle, color, children }: HeroProps) => {
   return (
-    <section className={`hero ${color || ''}`}>
+    <section className={`hero ${color || ""}`}>
       <div className="hero-body">
         <div className="container">
           <h1 className="title">{title}</h1>

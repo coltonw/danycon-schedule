@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import Hero from '../../components/Hero';
+import Image from "next/image";
+import Link from "next/link";
+import Hero from "../../components/Hero";
 
 const MedievalPage = () => {
   return (
@@ -18,8 +18,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="castlesofburgundy"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -32,8 +32,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="dominion"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -46,8 +46,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="kingdombuilder"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -60,8 +60,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="lancaster"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -74,8 +74,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="loveletter"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -88,8 +88,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="mysteryoftheabbey"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -102,8 +102,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="orleans"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -116,8 +116,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="pillarsoftheearth"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -130,8 +130,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="worldwithoutend"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -147,8 +147,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="abracadawhat"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -161,8 +161,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="calltoadventure"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -175,8 +175,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="chaosintheoldworld"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -189,8 +189,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="citadels"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -203,8 +203,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="destinies"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -217,8 +217,8 @@ const MedievalPage = () => {
                   height={97}
                   alt="elfenroads"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -231,8 +231,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="fleshandblood"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -245,8 +245,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="kingsburg"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -259,8 +259,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="lordsofwaterdeep"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -273,8 +273,8 @@ const MedievalPage = () => {
                   height={92}
                   alt="mageknight"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -287,8 +287,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="magicthegathering"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -301,8 +301,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="merchantscove"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -315,8 +315,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="queendomino"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -329,8 +329,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="resarcana"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -343,8 +343,8 @@ const MedievalPage = () => {
                   height={97}
                   alt="silver"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>
@@ -357,8 +357,8 @@ const MedievalPage = () => {
                   height={128}
                   alt="terramystica"
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: "100%",
+                    height: "auto",
                   }}
                 />
               </Link>

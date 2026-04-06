@@ -1,6 +1,6 @@
-import { getScheduleData } from '../../../lib/api';
-import Hero from '../../../components/Hero';
-import Schedule from '../../../components/Schedule';
+import { getScheduleData } from "../../../lib/api";
+import Hero from "../../../components/Hero";
+import Schedule from "../../../components/Schedule";
 
 interface SchedulePageProps {
   params: Promise<{
@@ -15,7 +15,7 @@ async function getParticipantData(username?: string) {
 const SchedulePage = async ({ params }: SchedulePageProps) => {
   const { username } = await params;
   const { gamesJoined, participants } = await getParticipantData(
-    decodeURIComponent(username)
+    decodeURIComponent(username),
   );
 
   return (

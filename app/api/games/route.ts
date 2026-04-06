@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
-import { participateAction } from '../../../lib/api';
+import { NextResponse } from "next/server";
+import { participateAction } from "../../../lib/api";
 
 export async function POST(request: Request) {
   const { username, action, game } = await request.json();

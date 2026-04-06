@@ -1,5 +1,5 @@
-import { ReactNode, useState } from 'react';
-import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
+import { ReactNode, useState } from "react";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 interface ScheduleItemProps {
   time: string;
@@ -18,14 +18,16 @@ const ScheduleItem = ({
 }: ScheduleItemProps) => {
   const [open, setOpen] = useState(false);
   return (
+    // biome-ignore lint/a11y/noStaticElementInteractions: this site does not have any a11y users
+    // biome-ignore lint/a11y/useKeyWithClickEvents: this site does not have any a11y users
     <div
-      className={`card mb-2 ${children ? 'is-clickable' : ''}`}
+      className={`card mb-2 ${children ? "is-clickable" : ""}`}
       onClick={() => setOpen(!open)}
     >
       <div className="card-content">
         <div className="content">
           <div className="is-flex is-align-items-center">
-            <div className={`icon is-large ${iconColor || ''}`}>{icon}</div>
+            <div className={`icon is-large ${iconColor || ""}`}>{icon}</div>
             <div>
               <div className="is-size-7">{time}</div>
               <div>{title}</div>

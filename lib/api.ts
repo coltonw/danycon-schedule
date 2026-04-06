@@ -3,19 +3,19 @@ import {
   DynamoDBClient,
   GetItemCommand,
   PutItemCommand,
-} from '@aws-sdk/client-dynamodb';
-import { Participants } from './types';
-import { isValidUsername } from './usernames';
+} from "@aws-sdk/client-dynamodb";
+import { Participants } from "./types";
+import { isValidUsername } from "./usernames";
 
 const gameChoices = [
-  'trinkettrove',
-  'comboup',
-  'guildlands',
-  'orbit',
-  'etherfields',
-  'cyclades',
-  'luthier',
-  'puertorico',
+  "trinkettrove",
+  "comboup",
+  "guildlands",
+  "orbit",
+  "etherfields",
+  "cyclades",
+  "luthier",
+  "puertorico",
 ];
 
 const participantsToGamesJoined = (
@@ -42,18 +42,18 @@ const initialParticipants: Participants = {
 const getParticipantsItem = async (): Promise<
   Record<string, AttributeValue> | undefined
 > => {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === "production") {
     const client = new DynamoDBClient({
-      region: 'us-east-1',
+      region: "us-east-1",
       credentials: {
-        accessKeyId: process.env.danycon_aws_access_key || '',
-        secretAccessKey: process.env.danycon_aws_secret_key || '',
+        accessKeyId: process.env.danycon_aws_access_key || "",
+        secretAccessKey: process.env.danycon_aws_secret_key || "",
       },
     });
     const command = new GetItemCommand({
-      TableName: 'danycon',
+      TableName: "danycon",
       Key: {
-        id: { S: '0' },
+        id: { S: "0" },
       },
     });
     try {
@@ -70,7 +70,7 @@ const getParticipantsItem = async (): Promise<
 const getParticipants = async (
   itemParam?: Record<string, AttributeValue>,
 ): Promise<Participants> => {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === "production") {
     const item = itemParam || (await getParticipantsItem());
     if (item?.participants?.S) {
       try {
@@ -82,24 +82,24 @@ const getParticipants = async (
 };
 
 const putParticipants = async (version: string, participants: Participants) => {
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === "production") {
     const client = new DynamoDBClient({
-      region: 'us-east-1',
+      region: "us-east-1",
       credentials: {
-        accessKeyId: process.env.danycon_aws_access_key || '',
-        secretAccessKey: process.env.danycon_aws_secret_key || '',
+        accessKeyId: process.env.danycon_aws_access_key || "",
+        secretAccessKey: process.env.danycon_aws_secret_key || "",
       },
     });
     const command = new PutItemCommand({
-      TableName: 'danycon',
+      TableName: "danycon",
       Item: {
-        id: { S: '0' },
-        version: { N: '' + (parseInt(version, 10) + 1) },
+        id: { S: "0" },
+        version: { N: "" + (parseInt(version, 10) + 1) },
         participants: { S: JSON.stringify(participants) },
       },
       ConditionExpression: `version = :v`,
       ExpressionAttributeValues: {
-        ':v': { N: version },
+        ":v": { N: version },
       },
     });
     try {
@@ -115,7 +115,7 @@ const putParticipants = async (version: string, participants: Participants) => {
 
 export async function participateAction(
   username: string,
-  action: 'join' | 'leave',
+  action: "join" | "leave",
   game: string,
 ) {
   const participantsItem = await getParticipantsItem();
@@ -125,16 +125,16 @@ export async function participateAction(
 
   if (isValidUsername(username)) {
     try {
-      if (action === 'join') {
+      if (action === "join") {
         participants[game].push(username);
         succuss = await putParticipants(
-          participantsItem?.version?.N || '0',
+          participantsItem?.version?.N || "0",
           participants,
         );
-      } else if (action === 'leave') {
+      } else if (action === "leave") {
         participants[game] = participants[game].filter((u) => u !== username);
         succuss = await putParticipants(
-          participantsItem?.version?.N || '0',
+          participantsItem?.version?.N || "0",
           participants,
         );
       }

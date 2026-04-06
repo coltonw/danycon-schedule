@@ -1,5 +1,5 @@
-import { usePathname } from 'next/navigation';
-import { validateUsername } from './usernames';
+import { usePathname } from "next/navigation";
+import { validateUsername } from "./usernames";
 
 interface IDed {
   id: string;
@@ -15,10 +15,10 @@ export const isGameJoined = (game: IDed, gamesJoined: string[]): boolean => {
 export const useUsername = (): string => {
   const pathname = usePathname();
   const usernamePath = validateUsername(
-    pathname.slice(pathname.lastIndexOf('/') + 1)
+    pathname.slice(pathname.lastIndexOf("/") + 1),
   );
   const usernameLS = validateUsername(
-    localStorage.getItem('username') || undefined
+    localStorage.getItem("username") || undefined,
   );
-  return usernamePath || usernameLS || 'Mary Elizabeth';
+  return usernamePath || usernameLS || "Mary Elizabeth";
 };

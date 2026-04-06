@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { FiCalendar } from 'react-icons/fi';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FiCalendar } from "react-icons/fi";
 
 interface ScheduleTabProps {
   id: string;

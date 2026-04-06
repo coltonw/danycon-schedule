@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { FiUser } from 'react-icons/fi';
-import { validateUsername } from '../../lib/usernames';
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { FiUser } from "react-icons/fi";
+import { validateUsername } from "../../lib/usernames";
 
 const Login = () => {
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
   const [invalid, setInvalid] = useState(false);
   const router = useRouter();
 
@@ -14,7 +14,7 @@ const Login = () => {
     const validated = validateUsername(username);
     if (validated) {
       setInvalid(false);
-      localStorage.setItem('username', validated);
+      localStorage.setItem("username", validated);
       router.push(`/schedule/${validated}`);
     } else {
       setInvalid(true);
@@ -30,7 +30,7 @@ const Login = () => {
             <div className="panel-block is-flex-direction-column is-align-items-flex-start">
               <p className="control has-icons-left">
                 <input
-                  className={`input ${invalid ? 'is-danger' : ''}`}
+                  className={`input ${invalid ? "is-danger" : ""}`}
                   type="text"
                   placeholder="First name only"
                   value={username}
@@ -38,7 +38,7 @@ const Login = () => {
                     setUsername(event.target.value);
                   }}
                   onKeyDown={(event) => {
-                    if (event.code === 'Enter') {
+                    if (event.code === "Enter") {
                       submit();
                     }
                   }}
@@ -57,6 +57,7 @@ const Login = () => {
                 className="button is-link is-outlined is-fullwidth"
                 onSubmit={submit}
                 onClick={submit}
+                type="button"
               >
                 Yeah, that is my name
               </button>
