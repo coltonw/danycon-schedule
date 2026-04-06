@@ -6,16 +6,27 @@ import { useState } from "react";
 import {
   GiBalloons,
   GiBriefcase,
-  GiCardJoker,
   GiChalkOutlineMurder,
   GiCoffeeCup,
   GiCommercialAirplane,
+  GiDiceTwentyFacesTwenty,
   GiFamilyHouse,
+  GiForkKnifeSpoon,
   GiGhost,
-  GiMeal,
+  GiGreekTemple,
+  GiHamburger,
+  GiMeeple,
+  GiMeepleGroup,
+  GiUfo,
   GiPartyFlags,
-  GiPerspectiveDiceSixFacesRandom,
-  GiSpookyHouse,
+  GiPawn,
+  GiPuzzle,
+  GiRollingDiceCup,
+  GiRollingDices,
+  GiHotMeal,
+  GiTacos,
+  GiStrawberry,
+  GiViolin,
 } from "react-icons/gi";
 import type { ScheduleData } from "../lib/types";
 import ChooseGame from "./ChooseGame";
@@ -74,25 +85,23 @@ const Schedule = ({
           {selectedTab === "friday" && (
             <>
               <ScheduleItem
-                time="Friday, April 10th, 3:10pm"
+                time="3:10pm"
                 title="Jesse and Mary Elizabeth arrive"
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-success"
               >
-                Southwest 541. Leaves Monday April 13th, Southwest 872 at
-                3:50pm.
+                Southwest 541
               </ScheduleItem>
               <ScheduleItem
-                time="Friday, April 10th, 3:40pm"
+                time="3:40pm"
                 title="Mandy and Bailey arrive"
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-warning"
               >
-                Southwest 892. Leaves Monday April 13th, Southwest 892 at
-                5:05pm.
+                Southwest 892
               </ScheduleItem>
               <ScheduleItem
-                time="Friday, April 10th, TBD"
+                time="TBD"
                 title="Mark arrives"
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-link"
@@ -102,7 +111,7 @@ const Schedule = ({
               <ScheduleItem
                 time="Evening"
                 title="Open gaming"
-                icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
+                icon={<GiRollingDices size="2em" />}
                 iconColor="has-text-warning"
               >
                 Break out the{" "}
@@ -133,14 +142,13 @@ const Schedule = ({
                 time="9:00am – 11:00am"
                 title="Julius's Pancake Breakfast"
                 icon={<GiCoffeeCup size="2em" />}
-                iconColor="has-text-warning"
               >
                 Everyone heads to First Church of Lancaster for pancakes
               </ScheduleItem>
               <ScheduleItem
                 time="After breakfast"
                 title="Open gaming"
-                icon={<GiBriefcase size="2em" />}
+                icon={<GiMeepleGroup size="2em" />}
                 iconColor="has-text-gray"
               >
                 <Link href="/paranormal">
@@ -149,9 +157,9 @@ const Schedule = ({
               </ScheduleItem>
               <ChooseGame
                 time="11:30am (30 min)"
-                title="Trinket Trove or Surfosaurus Max"
-                icon={<GiCardJoker size="2em" />}
-                iconColor="has-text-link"
+                title="Trinket Trove or Combo"
+                icon={<GiStrawberry size="2em" />}
+                iconColor="has-text-danger"
                 games={[
                   {
                     id: "trinkettrove",
@@ -164,7 +172,7 @@ const Schedule = ({
                       "https://boardgamegeek.com/boardgame/436931/trinket-trove",
                   },
                   {
-                    id: "surfosaurus",
+                    id: "combo",
                     image: {
                       src: "https://cf.geekdo-images.com/NV8dnINCwJaD5ZrKzqePDA__imagepage/img/uWgseSuF5R5DuNeTHNmja06Sw3U=/fit-in/600x400/filters:strip_icc()/pic8061227.png",
                       width: 192,
@@ -181,12 +189,13 @@ const Schedule = ({
               <ScheduleItem
                 time="12:30pm"
                 title="Lunch"
-                icon={<GiMeal size="2em" />}
+                icon={<GiHamburger size="2em" />}
+                iconColor="has-text-warning"
               />
               <ChooseGame
                 time="2:00pm (60 min)"
                 title="Guildlands or Orbit"
-                icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
+                icon={<GiUfo size="2em" />}
                 iconColor="has-text-success"
                 games={[
                   {
@@ -216,8 +225,8 @@ const Schedule = ({
               <ScheduleItem
                 time="3:30pm"
                 title="Open gaming"
-                icon={<GiGhost size="2em" />}
-                iconColor="has-text-warning"
+                icon={<GiPawn size="2em" />}
+                iconColor="has-text-link"
               >
                 <Link href="/paranormal">
                   Paranormal themed game suggestions
@@ -226,7 +235,7 @@ const Schedule = ({
               <ScheduleItem
                 time="6:30pm"
                 title="Dinner"
-                icon={<GiMeal size="2em" />}
+                icon={<GiHotMeal size="2em" />}
               />
               <ScheduleItem
                 time="Evening? Night?"
@@ -254,7 +263,7 @@ const Schedule = ({
               <ScheduleItem
                 time="Early morning"
                 title="Daily word games and open gaming"
-                icon={<GiCoffeeCup size="2em" />}
+                icon={<GiDiceTwentyFacesTwenty size="2em" />}
                 iconColor="has-text-gray"
               >
                 <Link href="/paranormal">
@@ -264,8 +273,8 @@ const Schedule = ({
               <ChooseGame
                 time="10:00am (90 min)"
                 title="Etherfields or Cyclades"
-                icon={<GiSpookyHouse size="2em" />}
-                iconColor="has-text-warning"
+                icon={<GiGreekTemple size="2em" />}
+                iconColor="has-text-info"
                 games={[
                   {
                     id: "etherfields",
@@ -295,13 +304,14 @@ const Schedule = ({
               <ScheduleItem
                 time="12:30pm"
                 title="Lunch"
-                icon={<GiMeal size="2em" />}
+                icon={<GiTacos size="2em" />}
+                iconColor="has-text-warning"
               />
               <ChooseGame
                 time="2:00pm (120 min)"
                 title="Luthier or Puerto Rico Special Edition"
-                icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
-                iconColor="has-text-link"
+                icon={<GiViolin size="2em" />}
+                iconColor="has-text-brown"
                 games={[
                   {
                     id: "luthier",
@@ -356,7 +366,44 @@ const Schedule = ({
           {selectedTab === "monday" && (
             <>
               <ScheduleItem
-                time="Monday, April 13th, 3:50pm"
+                time="Morning"
+                title="Daily word games"
+                icon={<GiPuzzle size="2em" />}
+                iconColor="has-text-info"
+              />
+              <ScheduleItem
+                time="Morning"
+                title="Open gaming"
+                icon={<GiMeeple size="2em" />}
+                iconColor="has-text-primary"
+              >
+                <Link href="/paranormal">
+                  Paranormal themed game suggestions
+                </Link>
+              </ScheduleItem>
+              <ScheduleItem
+                time="12:00pm"
+                title="Lunch"
+                icon={<GiForkKnifeSpoon size="2em" />}
+              />
+              <ScheduleItem
+                time="After lunch"
+                title="Open gaming"
+                icon={<GiRollingDiceCup size="2em" />}
+                iconColor="has-text-warning"
+              >
+                <Link href="/paranormal">
+                  Paranormal themed game suggestions
+                </Link>
+              </ScheduleItem>
+              <ScheduleItem
+                time="After lunch"
+                title="Pack up and goodbyes"
+                icon={<GiBriefcase size="2em" />}
+                iconColor="has-text-brown"
+              />
+              <ScheduleItem
+                time="3:50pm"
                 title="Jesse and Mary Elizabeth leave"
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-success"
@@ -364,7 +411,7 @@ const Schedule = ({
                 Southwest 872
               </ScheduleItem>
               <ScheduleItem
-                time="Monday, April 13th, 5:05pm"
+                time="5:05pm"
                 title="Mandy and Bailey leave"
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-warning"

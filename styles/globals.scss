@@ -8,3 +8,7 @@ $brown: hsl(27, 74%, 23%);
 .is-not-clickable-text {
   cursor: text;
 }
+
+.has-text-brown {
+  color: $brown;
+}

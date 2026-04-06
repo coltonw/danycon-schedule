@@ -9,7 +9,7 @@ import { isValidUsername } from "./usernames";
 
 const gameChoices = [
   "trinkettrove",
-  "surfosaurus",
+  "combo",
   "guildlands",
   "orbit",
   "etherfields",
@@ -29,7 +29,7 @@ const participantsToGamesJoined = (
 
 const initialParticipants: Participants = {
   trinkettrove: [],
-  surfosaurus: [],
+  combo: [],
   guildlands: [],
   orbit: [],
   etherfields: [],
