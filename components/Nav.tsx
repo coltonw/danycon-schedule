@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { GiCardJoker } from "react-icons/gi";
+import { useState } from "react";
 import { FiUser } from "react-icons/fi";
+import { GiCardJoker } from "react-icons/gi";
 import styles from "../styles/Nav.module.scss";
 
 const Nav = () => {
@@ -38,8 +38,8 @@ const Nav = () => {
                 <Link href="/schedule" className="navbar-item">
                   Schedule
                 </Link>
-                <Link href="/medieval" className="navbar-item">
-                  Medieval Games
+                <Link href="/paranormal" className="navbar-item">
+                  Paranormal Games
                 </Link>
                 <Link href="/login" className="navbar-item">
                   <span className="icon">

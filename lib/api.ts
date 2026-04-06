@@ -1,15 +1,15 @@
+import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 import {
-  AttributeValue,
   DynamoDBClient,
   GetItemCommand,
   PutItemCommand,
 } from "@aws-sdk/client-dynamodb";
-import { Participants } from "./types";
+import type { Participants } from "./types";
 import { isValidUsername } from "./usernames";
 
 const gameChoices = [
   "trinkettrove",
-  "comboup",
+  "surfosaurus",
   "guildlands",
   "orbit",
   "etherfields",
@@ -22,15 +22,14 @@ const participantsToGamesJoined = (
   participants: Participants,
   username: string,
 ): string[] => {
-  return gameChoices.filter(
-    (gameId) =>
-      participants[gameId] && participants[gameId].find((p) => p === username),
+  return gameChoices.filter((gameId) =>
+    participants[gameId]?.find((p) => p === username),
   );
 };
 
 const initialParticipants: Participants = {
   trinkettrove: [],
-  comboup: [],
+  surfosaurus: [],
   guildlands: [],
   orbit: [],
   etherfields: [],
@@ -75,7 +74,7 @@ const getParticipants = async (
     if (item?.participants?.S) {
       try {
         return JSON.parse(item.participants.S);
-      } catch (e) {}
+      } catch {}
     }
   }
   return initialParticipants;
@@ -94,7 +93,7 @@ const putParticipants = async (version: string, participants: Participants) => {
       TableName: "danycon",
       Item: {
         id: { S: "0" },
-        version: { N: "" + (parseInt(version, 10) + 1) },
+        version: { N: `${parseInt(version, 10) + 1}` },
         participants: { S: JSON.stringify(participants) },
       },
       ConditionExpression: `version = :v`,
@@ -138,7 +137,7 @@ export async function participateAction(
           participants,
         );
       }
-    } catch (e) {}
+    } catch {}
 
     gamesJoined = participantsToGamesJoined(participants, username);
   }

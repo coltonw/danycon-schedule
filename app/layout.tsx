@@ -1,5 +1,6 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Nav from "../components/Nav";
+import ParanormalEffects from "../components/ParanormalEffects";
 import "../styles/globals.scss";
 
 interface RootLayoutProps {
@@ -11,6 +12,7 @@ function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body>
         <Nav />
+        <ParanormalEffects />
         {children}
       </body>
     </html>

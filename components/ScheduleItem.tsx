@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { type ReactNode, useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 interface ScheduleItemProps {

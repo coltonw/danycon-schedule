@@ -15,10 +15,9 @@ import {
   GiMeal,
   GiPartyFlags,
   GiPerspectiveDiceSixFacesRandom,
-  GiPresent,
   GiSpookyHouse,
 } from "react-icons/gi";
-import { ScheduleData } from "../lib/types";
+import type { ScheduleData } from "../lib/types";
 import ChooseGame from "./ChooseGame";
 import ScheduleItem from "./ScheduleItem";
 import ScheduleTab from "./ScheduleTab";
@@ -31,7 +30,7 @@ const Schedule = ({
   const [participants, setParticipants] = useState(initialParticipants);
   const [gamesJoined, setGamesJoined] = useState(initialGamesJoined);
   let defaultTab = "friday";
-  const time = new Date().getTime();
+  const time = Date.now();
   // We use 3am EDT (7am UTC) to mark the start of the next danycon day
   if (time > new Date("2026-04-13T07:00:00.000Z").getTime()) {
     defaultTab = "monday";
@@ -80,7 +79,8 @@ const Schedule = ({
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-success"
               >
-                Southwest 541. Leaves Monday April 13th, Flight 872 at 3:50pm.
+                Southwest 541. Leaves Monday April 13th, Southwest 872 at
+                3:50pm.
               </ScheduleItem>
               <ScheduleItem
                 time="Friday, April 10th, 3:40pm"
@@ -88,7 +88,8 @@ const Schedule = ({
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-warning"
               >
-                United UA 1232. Leaves Monday at 5pm
+                Southwest 892. Leaves Monday April 13th, Southwest 892 at
+                5:05pm.
               </ScheduleItem>
               <ScheduleItem
                 time="Friday, April 10th, TBD"
@@ -104,9 +105,9 @@ const Schedule = ({
                 icon={<GiPerspectiveDiceSixFacesRandom size="2em" />}
                 iconColor="has-text-warning"
               >
-                Break out the paranormal themed games while everyone settles in!
-                Suggestions: Mysterium, Cryptid, Mansions of Madness, Gloom,
-                Spectral, Destinies, Vagrantsong
+                Break out the{" "}
+                <Link href="/paranormal">paranormal themed games</Link> while
+                everyone settles in!
               </ScheduleItem>
               <ScheduleItem
                 time="Late evening"
@@ -142,12 +143,13 @@ const Schedule = ({
                 icon={<GiBriefcase size="2em" />}
                 iconColor="has-text-gray"
               >
-                Paranormal themed open gaming suggestions: Mysterium, Cryptid,
-                Mansions of Madness, Gloom, Spectral, Destinies, Vagrantsong
+                <Link href="/paranormal">
+                  Paranormal themed game suggestions
+                </Link>
               </ScheduleItem>
               <ChooseGame
                 time="11:30am (30 min)"
-                title="Trinket Trove or Combo Up"
+                title="Trinket Trove or Surfosaurus Max"
                 icon={<GiCardJoker size="2em" />}
                 iconColor="has-text-link"
                 games={[
@@ -162,14 +164,14 @@ const Schedule = ({
                       "https://boardgamegeek.com/boardgame/436931/trinket-trove",
                   },
                   {
-                    id: "comboup",
+                    id: "surfosaurus",
                     image: {
-                      src: "https://cf.geekdo-images.com/Yna9fOZ8ZQeQdThHuLa76Q__itemrep/img/Kft_ojxV8NPhbOpr8jdNG8MJRDA=/fit-in/246x300/filters:strip_icc()/pic8349602.png",
-                      width: 100,
+                      src: "https://cf.geekdo-images.com/NV8dnINCwJaD5ZrKzqePDA__imagepage/img/uWgseSuF5R5DuNeTHNmja06Sw3U=/fit-in/600x400/filters:strip_icc()/pic8061227.png",
+                      width: 192,
                       height: 128,
                     },
                     bggLink:
-                      "https://boardgamegeek.com/boardgame/438452/combo-up",
+                      "https://boardgamegeek.com/boardgame/394887/surfosaurus-max",
                   },
                 ]}
                 gamesJoined={gamesJoined}
@@ -217,8 +219,9 @@ const Schedule = ({
                 icon={<GiGhost size="2em" />}
                 iconColor="has-text-warning"
               >
-                Paranormal themed open gaming suggestions: Mysterium, Cryptid,
-                Mansions of Madness, Gloom, Spectral, Destinies, Vagrantsong
+                <Link href="/paranormal">
+                  Paranormal themed game suggestions
+                </Link>
               </ScheduleItem>
               <ScheduleItem
                 time="6:30pm"
@@ -254,8 +257,9 @@ const Schedule = ({
                 icon={<GiCoffeeCup size="2em" />}
                 iconColor="has-text-gray"
               >
-                Paranormal themed open gaming suggestions: Mysterium, Cryptid,
-                Mansions of Madness, Gloom, Spectral, Destinies, Vagrantsong
+                <Link href="/paranormal">
+                  Paranormal themed game suggestions
+                </Link>
               </ScheduleItem>
               <ChooseGame
                 time="10:00am (90 min)"
@@ -352,14 +356,24 @@ const Schedule = ({
           {selectedTab === "monday" && (
             <>
               <ScheduleItem
-                time="TBD"
-                title="Mark and Erin leave"
+                time="Monday, April 13th, 3:50pm"
+                title="Jesse and Mary Elizabeth leave"
                 icon={<GiCommercialAirplane size="2em" />}
-                iconColor="has-text-link"
-              />
+                iconColor="has-text-success"
+              >
+                Southwest 872
+              </ScheduleItem>
+              <ScheduleItem
+                time="Monday, April 13th, 5:05pm"
+                title="Mandy and Bailey leave"
+                icon={<GiCommercialAirplane size="2em" />}
+                iconColor="has-text-warning"
+              >
+                Southwest 892
+              </ScheduleItem>
               <ScheduleItem
                 time="TBD"
-                title="Jesse and leave"
+                title="Mark and Erin leave"
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-link"
               />

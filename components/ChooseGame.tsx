@@ -1,6 +1,6 @@
-import { ReactNode, useState } from "react";
+import { type ReactNode, useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import { GameProps, Participants, ScheduleData } from "../lib/types";
+import type { GameProps, Participants, ScheduleData } from "../lib/types";
 import { isGameJoined } from "../lib/utils";
 import ChooseGameOption from "./ChooseGameOption";
 

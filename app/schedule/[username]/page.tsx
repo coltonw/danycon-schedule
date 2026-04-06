@@ -1,6 +1,6 @@
-import { getScheduleData } from "../../../lib/api";
 import Hero from "../../../components/Hero";
 import Schedule from "../../../components/Schedule";
+import { getScheduleData } from "../../../lib/api";
 
 interface SchedulePageProps {
   params: Promise<{

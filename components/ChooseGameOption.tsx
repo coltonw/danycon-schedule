@@ -1,7 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { FiUser } from "react-icons/fi";
-import { GameProps, Participants, ScheduleData } from "../lib/types";
+import type { GameProps, Participants, ScheduleData } from "../lib/types";
 import { isGameJoined, useUsername } from "../lib/utils";
 
 interface ChooseGameOptionProps {
