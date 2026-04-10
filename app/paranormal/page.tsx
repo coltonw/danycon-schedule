@@ -92,6 +92,17 @@ const ParanormalPage = () => {
           </div>
         </div>
       </section>
+      <section className="section">
+        <div className="container">
+          <p>
+            If you run out of paranormal games,{" "}
+            <Link href="https://geekgroup.app/users/dagreenmachine/collection">
+              here is Will&apos;s entire collection
+            </Link>{" "}
+            for more options!
+          </p>
+        </div>
+      </section>
     </>
   );
 };

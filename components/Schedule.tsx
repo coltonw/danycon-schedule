@@ -90,7 +90,10 @@ const Schedule = ({
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-success"
               >
-                Southwest 541
+                <Link href="https://www.flightaware.com/live/flight/SWA541/history/20260410/1640Z/KBNA/KBOS">
+                  Southwest 541
+                </Link>{" "}
+                (Nashville → Boston)
               </ScheduleItem>
               <ScheduleItem
                 time="3:40pm"
@@ -98,7 +101,10 @@ const Schedule = ({
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-warning"
               >
-                Southwest 892
+                <Link href="https://www.flightaware.com/live/flight/UAL1232">
+                  United 1232
+                </Link>{" "}
+                (Denver → Boston)
               </ScheduleItem>
               <ScheduleItem
                 time="TBD"
@@ -110,11 +116,15 @@ const Schedule = ({
               </ScheduleItem>
               <ScheduleItem
                 time="Evening"
-                title="Open gaming"
+                title="Sporcle Quiz and Open gaming"
                 icon={<GiRollingDices size="2em" />}
                 iconColor="has-text-warning"
               >
-                Break out the{" "}
+                Do Friday's{" "}
+                <Link href="https://www.sporcle.com/games/DejaV/paranormal-games-by-tagline">
+                  daily Sporcle quiz
+                </Link>
+                , then break out the{" "}
                 <Link href="/paranormal">paranormal themed games</Link> while
                 everyone settles in!
               </ScheduleItem>
@@ -147,10 +157,14 @@ const Schedule = ({
               </ScheduleItem>
               <ScheduleItem
                 time="After breakfast"
-                title="Open gaming"
+                title="Sporcle Quiz and Open gaming"
                 icon={<GiMeepleGroup size="2em" />}
                 iconColor="has-text-gray"
               >
+                <Link href="https://www.sporcle.com/games/DejaV/danycon-through-the-ages">
+                  Saturday's daily Sporcle quiz!
+                </Link>
+                <br />
                 <Link href="/paranormal">
                   Paranormal themed game suggestions
                 </Link>
@@ -262,10 +276,14 @@ const Schedule = ({
             <>
               <ScheduleItem
                 time="Early morning"
-                title="Daily word games and open gaming"
+                title="Sporcle quiz and Open Gaming"
                 icon={<GiDiceTwentyFacesTwenty size="2em" />}
                 iconColor="has-text-gray"
               >
+                <Link href="https://www.sporcle.com/games/DejaV/board-games-missing-pieces">
+                  Sunday's daily Sporcle quiz!
+                </Link>
+                <br />
                 <Link href="/paranormal">
                   Paranormal themed game suggestions
                 </Link>
@@ -367,16 +385,14 @@ const Schedule = ({
             <>
               <ScheduleItem
                 time="Morning"
-                title="Daily word games"
+                title="Sporcle quiz and open gaming"
                 icon={<GiPuzzle size="2em" />}
                 iconColor="has-text-info"
-              />
-              <ScheduleItem
-                time="Morning"
-                title="Open gaming"
-                icon={<GiMeeple size="2em" />}
-                iconColor="has-text-primary"
               >
+                <Link href="https://www.sporcle.com/games/DejaV/board-game-by-first-player-rules">
+                  Monday's daily Sporcle quiz!
+                </Link>
+                <br />
                 <Link href="/paranormal">
                   Paranormal themed game suggestions
                 </Link>
@@ -408,7 +424,10 @@ const Schedule = ({
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-success"
               >
-                Southwest 872
+                <Link href="https://www.flightaware.com/live/flight/SWA872">
+                  Southwest 872
+                </Link>{" "}
+                (Boston → Nashville)
               </ScheduleItem>
               <ScheduleItem
                 time="5:05pm"
@@ -416,7 +435,10 @@ const Schedule = ({
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-warning"
               >
-                Southwest 892
+                <Link href="https://www.flightaware.com/live/flight/SWA892">
+                  Southwest 892
+                </Link>{" "}
+                (Boston → Denver)
               </ScheduleItem>
               <ScheduleItem
                 time="TBD"
