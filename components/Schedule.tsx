@@ -90,7 +90,7 @@ const Schedule = ({
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-success"
               >
-                <Link href="https://www.flightaware.com/live/flight/SWA541/history/20260410/1640Z/KBNA/KBOS">
+                <Link href="https://www.flightaware.com/live/flight/SWA541/history/20260409/1650Z/KBNA/KBOS">
                   Southwest 541
                 </Link>{" "}
                 (Nashville → Boston)
@@ -107,12 +107,15 @@ const Schedule = ({
                 (Denver → Boston)
               </ScheduleItem>
               <ScheduleItem
-                time="TBD"
+                time="7:30pm"
                 title="Mark arrives"
                 icon={<GiCommercialAirplane size="2em" />}
                 iconColor="has-text-link"
               >
-                Time TBD
+                <Link href="https://www.flightaware.com/live/flight/AAL1048/history/20260410/1952Z/KDFW/KBOS">
+                  American 1048
+                </Link>{" "}
+                (Dallas → Boston)
               </ScheduleItem>
               <ScheduleItem
                 time="Evening"
