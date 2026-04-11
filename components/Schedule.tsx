@@ -182,7 +182,7 @@ const Schedule = ({
                     id: "trinkettrove",
                     image: {
                       src: "https://cf.geekdo-images.com/OaULQMLUHwDrDszJsHK8pA__itemrep/img/fDLcmrXDILphaYqEOu1SNxEDuVE=/fit-in/246x300/filters:strip_icc()/pic8985794.jpg",
-                      width: 100,
+                      width: 128,
                       height: 128,
                     },
                     bggLink:
@@ -191,8 +191,8 @@ const Schedule = ({
                   {
                     id: "combo",
                     image: {
-                      src: "https://cf.geekdo-images.com/NV8dnINCwJaD5ZrKzqePDA__imagepage/img/uWgseSuF5R5DuNeTHNmja06Sw3U=/fit-in/600x400/filters:strip_icc()/pic8061227.png",
-                      width: 192,
+                      src: "https://cf.geekdo-images.com/NV8dnINCwJaD5ZrKzqePDA__imagepage/img/uWgseSuF5R5DuNeTHNmja06Sw3U=/fit-in/900x600/filters:no_upscale():strip_icc()/pic8061227.png",
+                      width: 85,
                       height: 128,
                     },
                     bggLink:
@@ -219,7 +219,7 @@ const Schedule = ({
                     id: "guildlands",
                     image: {
                       src: "https://cf.geekdo-images.com/CSJCc5ujq4PktChkmLIcPg__itemrep/img/LmIFUCFKiBz32unaKz1ui1F3kQ4=/fit-in/246x300/filters:strip_icc()/pic8955025.jpg",
-                      width: 100,
+                      width: 128,
                       height: 128,
                     },
                     bggLink:
@@ -229,7 +229,7 @@ const Schedule = ({
                     id: "orbit",
                     image: {
                       src: "https://cf.geekdo-images.com/0x7TCH7bCynSQqW3GVc8UA__itemrep/img/3FehhBN80nEO3VL5bm6gYqRPTPY=/fit-in/246x300/filters:strip_icc()/pic8478397.png",
-                      width: 100,
+                      width: 85,
                       height: 128,
                     },
                     bggLink: "https://boardgamegeek.com/boardgame/429767/orbit",
@@ -301,7 +301,7 @@ const Schedule = ({
                     id: "etherfields",
                     image: {
                       src: "https://cf.geekdo-images.com/K1yVmbbWCsQuiWk-7x-V-Q__itemrep/img/sn5fNJYWUBD1DJ9pDpqxjkF6kcI=/fit-in/246x300/filters:strip_icc()/pic7455627.png",
-                      width: 100,
+                      width: 128,
                       height: 128,
                     },
                     bggLink:
@@ -311,8 +311,8 @@ const Schedule = ({
                     id: "cyclades",
                     image: {
                       src: "https://cf.geekdo-images.com/6QbaJOS8acWkJ6gSYI0KaQ__itemrep/img/Yd9YB69mzV4X4e3zD6oX2H_ohik=/fit-in/246x300/filters:strip_icc()/pic584779.jpg",
-                      width: 100,
-                      height: 128,
+                      width: 128,
+                      height: 105,
                     },
                     bggLink:
                       "https://boardgamegeek.com/boardgame/54998/cyclades",
@@ -338,7 +338,7 @@ const Schedule = ({
                     id: "luthier",
                     image: {
                       src: "https://cf.geekdo-images.com/NNOCMpxKchQb_ByLmvDfRQ__itemrep/img/rFyVKpt-JhbahxmqTXGBa8heovg=/fit-in/246x300/filters:strip_icc()/pic8145392.png",
-                      width: 100,
+                      width: 105,
                       height: 128,
                     },
                     bggLink:
@@ -348,7 +348,7 @@ const Schedule = ({
                     id: "puertorico",
                     image: {
                       src: "https://cf.geekdo-images.com/ewNPD8vcrsXVfuVc9_E6hg__itemrep/img/tGk7IUtPVvPuoHu1xHd16SgKxsg=/fit-in/246x300/filters:strip_icc()/pic8376834.jpg",
-                      width: 100,
+                      width: 128,
                       height: 128,
                     },
                     bggLink:
