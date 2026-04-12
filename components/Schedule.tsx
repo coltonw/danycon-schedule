@@ -293,19 +293,19 @@ const Schedule = ({
               </ScheduleItem>
               <ChooseGame
                 time="10:00am (90 min)"
-                title="Etherfields or Cyclades"
+                title="Etherstone or Cyclades"
                 icon={<GiGreekTemple size="2em" />}
                 iconColor="has-text-info"
                 games={[
                   {
                     id: "etherfields",
                     image: {
-                      src: "https://cf.geekdo-images.com/K1yVmbbWCsQuiWk-7x-V-Q__itemrep/img/sn5fNJYWUBD1DJ9pDpqxjkF6kcI=/fit-in/246x300/filters:strip_icc()/pic7455627.png",
+                      src: "https://cf.geekdo-images.com/K0DaAMxsEtQV7h7ac47OGQ__itemrep/img/A1-iybNxS0pjwII3vE1eHF8tXZk=/fit-in/246x300/filters:strip_icc()/pic7986687.png",
                       width: 128,
                       height: 128,
                     },
                     bggLink:
-                      "https://boardgamegeek.com/boardgame/280794/etherfields",
+                      "https://boardgamegeek.com/boardgame/412086/etherstone",
                   },
                   {
                     id: "cyclades",
